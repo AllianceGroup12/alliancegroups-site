@@ -1,0 +1,25 @@
+{
+  "name": "alliancegroups-site",
+  "version": "1.0.0",
+  "description": "Alliance Groups marketing site highlighting the Compliance Shield service.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node -e \"console.log('No build step required for static assets.');\"",
+    "lint": "node -e \"console.log('No lint step configured.');\""
+  },
+  "keywords": [
+    "alliance",
+    "compliance",
+    "security",
+    "marketing"
+  ],
+  "author": "Alliance Group",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "compression": "^1.8.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  }
+}
