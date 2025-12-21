@@ -24,7 +24,12 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  # The downloaded artifact is extracted into a directory that matches the artifact name
+  # ("node-app" in this workflow). Deploying the workspace root would therefore
+  # publish a directory structure that wraps the application one level too deep.
+  # Point directly at the extracted artifact directory so the app files are at the root
+  # of the deployed package and the Azure runtime can locate package.json/server files.
+  AZURE_WEBAPP_PACKAGE_PATH: 'node-app'
   NODE_VERSION: '20.x'                # set this to the node version to use
 
 permissions:
