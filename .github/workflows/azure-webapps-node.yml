@@ -53,11 +53,29 @@ jobs:
         npm run build --if-present
         npm run test --if-present
 
+    - name: Prepare deployment package
+      run: |
+        mkdir -p deploy
+        # Copy Next.js standalone output (if present)
+        if [ -d .next/standalone ]; then
+          mkdir -p deploy/.next
+          cp -r .next/standalone deploy/.next/standalone
+        fi
+        # Copy static assets
+        if [ -d .next/static ]; then
+          mkdir -p deploy/.next
+          cp -r .next/static deploy/.next/static
+        fi
+        # Include public folder if present
+        if [ -d public ]; then cp -r public deploy/public; fi
+        # Include package.json so Azure can run npm start
+        cp package.json deploy/
+
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v4
       with:
         name: node-app
-        path: .
+        path: deploy
 
   deploy:
     permissions:
