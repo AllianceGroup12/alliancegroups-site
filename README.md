@@ -16,7 +16,7 @@ npm run dev
 
 - The main application route is implemented in `/pages/index.js`.
 - Static assets still belong in `/public`.
-- `next.config.js` uses `output: 'standalone'` for portable production builds.
+- `next.config.js` keeps the default Next.js runtime so local `npm start` and Vercel deployments use the same serving model.
 
 ## Deployment
 
