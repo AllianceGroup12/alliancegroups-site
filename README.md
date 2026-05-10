@@ -20,7 +20,7 @@ npm run dev
 
 ## Deployment
 
-The GitHub Actions workflow at `/home/runner/work/alliancegroups-site/alliancegroups-site/.github/workflows/deploy.yml` verifies the build on every push to `main`, creates preview deployments for pull requests from this repository, and deploys production builds to Vercel from `main`.
+The GitHub Actions workflow at `.github/workflows/deploy.yml` verifies the build on every push to `main`, creates preview deployments for pull requests from this repository, and deploys production builds to Vercel from `main`.
 
 ### Required GitHub secrets
 
@@ -37,4 +37,4 @@ The GitHub Actions workflow at `/home/runner/work/alliancegroups-site/alliancegr
 
 ### Security headers
 
-`/home/runner/work/alliancegroups-site/alliancegroups-site/vercel.json` defines the production response headers, including the content security policy, clickjacking protection, content-type sniffing protection, and cache control for static assets.
+`vercel.json` defines the production response headers, including the content security policy, clickjacking protection, content-type sniffing protection, and cache control for static assets.
