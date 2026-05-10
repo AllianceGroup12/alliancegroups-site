@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Next.js build artifacts
 .next/
+.vercel/
 
-# Azure deployment artifacts
+# Deployment artifacts
 *.zip

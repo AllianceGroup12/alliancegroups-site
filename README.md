@@ -1,23 +1,40 @@
 # Alliance Groups – Compliance Shield
 
-Marketing microsite for Alliance Groups' Compliance Shield platform. The site is built as a lightweight Node.js application that serves pre-built static assets describing the Compliance Shield product offering, features, and value proposition.
+Marketing microsite for Alliance Groups' Compliance Shield platform. The site is built with Next.js and is deployed to Vercel through GitHub Actions.
 
 ## Getting started
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
-- The server listens on `http://localhost:3000` by default.
-- Static assets live in `public/` and are served with sensible security headers via Helmet.
+- Development runs at `http://localhost:3000` by default.
+- To verify a production build locally, run `npm run build && npm start`.
 
 ## Development notes
 
-- The project is intentionally build-free. Static assets can be edited directly in `public/`.
-- `npm run build` is a placeholder for CI/CD systems that expect a build step.
-- Styles are authored in `public/styles.css`; interactive behaviour is implemented in `public/scripts.js`.
+- The main application route is implemented in `/pages/index.js`.
+- Static assets still belong in `/public`.
+- `next.config.js` uses `output: 'standalone'` for portable production builds.
 
 ## Deployment
 
-The included GitHub Actions workflow (`.github/workflows/azure-webapps-node.yml`) packages the application and deploys it to an Azure Web App once repository secrets are configured.
+The GitHub Actions workflow at `/home/runner/work/alliancegroups-site/alliancegroups-site/.github/workflows/deploy.yml` verifies the build on every push to `main`, creates preview deployments for pull requests from this repository, and deploys production builds to Vercel from `main`.
+
+### Required GitHub secrets
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+### One-time setup
+
+1. Create a Vercel project for the repository.
+2. Link the local checkout with `npx vercel link` or import the repo with the Vercel GitHub integration.
+3. Add the required Vercel secrets to the GitHub repository settings.
+4. Add any custom domain in the Vercel dashboard and update DNS to point at Vercel.
+
+### Security headers
+
+`/home/runner/work/alliancegroups-site/alliancegroups-site/vercel.json` defines the production response headers, including the content security policy, clickjacking protection, content-type sniffing protection, and cache control for static assets.
