@@ -615,3 +615,108 @@ textarea {
 .trend-value.negative {
   color: #ff5c5c;
 }
+
+/* ── Stakeholders section ── */
+.stakeholder-flow {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.stakeholder-group,
+.service-group {
+  display: grid;
+  gap: 1rem;
+}
+
+.stakeholder-card,
+.service-card {
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.stakeholder-card h3,
+.service-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.stakeholder-card p,
+.service-card p {
+  margin: 0.4rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.service-card--reports {
+  border-left: 4px solid var(--brand);
+}
+
+.service-card--removals {
+  border-left: 4px solid var(--accent);
+}
+
+.service-card--tenants {
+  border-left: 4px solid #8b5cf6;
+}
+
+.service-revenue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin: 0.2rem 0 0.4rem !important;
+}
+
+.service-card--removals .service-revenue {
+  color: var(--accent);
+}
+
+.shield-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius: 1.5rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 86, 255, 0.3);
+  min-width: 130px;
+}
+
+.hub-logo {
+  width: 56px;
+  height: 56px;
+  font-size: 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hub-name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.hub-sub {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .stakeholder-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .shield-hub {
+    flex-direction: row;
+    justify-content: center;
+    min-width: unset;
+  }
+}
