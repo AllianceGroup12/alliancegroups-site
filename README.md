@@ -24,7 +24,7 @@ The GitHub Actions workflow at `.github/workflows/deploy.yml` verifies the build
 
 ### Required GitHub credentials
 
-- `VERCEL_TOKEN` (secret recommended; variable fallback supported)
+- `VERCEL_TOKEN` (secret)
 - `VERCEL_ORG_ID` (secret or variable)
 - `VERCEL_PROJECT_ID` (secret or variable)
 
