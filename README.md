@@ -22,11 +22,11 @@ npm run dev
 
 The GitHub Actions workflow at `.github/workflows/deploy.yml` verifies the build on every push to `main`, creates preview deployments for pull requests from this repository, and deploys production builds to Vercel from `main`.
 
-### Required GitHub secrets
+### Required GitHub credentials
 
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
+- `VERCEL_TOKEN` (secret)
+- `VERCEL_ORG_ID` (secret or variable)
+- `VERCEL_PROJECT_ID` (secret or variable)
 
 ### One-time setup
 
