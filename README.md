@@ -31,8 +31,8 @@ The GitHub Actions workflow at `.github/workflows/deploy.yml` verifies the build
    - `npm ci`
    - `npm run build`
    - optional runtime check: `npm start`
-5. Open a pull request to `main` and confirm the `Deploy to Vercel` workflow passes.
-6. Ensure the repository deployment values are configured (see **Required GitHub credentials** below).
+5. Ensure the repository deployment values are configured (see **Required GitHub credentials** below).
+6. Open a pull request to `main` and confirm the `Deploy to Vercel` workflow passes.
 7. Merge to `main` to trigger production deployment, then validate the production domain and DNS/custom-domain health in Vercel.
 
 ### Required GitHub credentials
