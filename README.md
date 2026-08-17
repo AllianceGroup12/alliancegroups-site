@@ -22,6 +22,19 @@ npm run dev
 
 The GitHub Actions workflow at `.github/workflows/deploy.yml` verifies the build on every push to `main`, creates preview deployments for pull requests from this repository, and deploys production builds to Vercel from `main`.
 
+### Deploying a Google Studio export
+
+1. Export the production build from Google Studio (HTML/CSS/JS/assets).
+2. Replace `/public/index.html` with the exported main HTML file.
+3. Copy all exported assets into `/public` (or subfolders under `/public`) and update references in `index.html` to use local paths.
+4. Run local verification:
+   - `npm ci`
+   - `npm run build`
+   - optional runtime check: `npm start`
+5. Ensure the repository deployment values are configured (see **Required GitHub credentials** below).
+6. Open a pull request to `main` and confirm the `Deploy to Vercel` workflow passes.
+7. Merge to `main` to trigger production deployment, then validate the production domain and DNS/custom-domain health in Vercel.
+
 ### Required GitHub credentials
 
 - `VERCEL_TOKEN` (secret)
