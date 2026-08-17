@@ -128,26 +128,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Ensure Vercel token is configured for production
+      - name: Check Vercel token availability
+        id: vercel-token
         run: |
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
-            echo "::error::VERCEL_TOKEN secret is not configured for production deployment."
-            exit 1
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Skip production deployment when Vercel token is unavailable
+        if: ${{ steps.vercel-token.outputs.available != 'true' }}
+        run: echo "::warning::Skipping production deployment because VERCEL_TOKEN secret is not configured."
+
       - name: Pull Vercel production environment
+        if: ${{ steps.vercel-token.outputs.available == 'true' }}
         run: npx vercel@latest pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID || vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID || vars.VERCEL_PROJECT_ID }}
 
       - name: Build Vercel production output
+        if: ${{ steps.vercel-token.outputs.available == 'true' }}
         run: npx vercel@latest build --prod --token="${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID || vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID || vars.VERCEL_PROJECT_ID }}
 
       - name: Deploy Vercel production
+        if: ${{ steps.vercel-token.outputs.available == 'true' }}
         run: npx vercel@latest deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID || vars.VERCEL_ORG_ID }}
