@@ -1,21 +1,32 @@
-const functions = require("firebase-functions");
+const { onRequest } = require("firebase-functions/v2/https");
+const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
-const cors = require("cors")({ origin: true });
 
 admin.initializeApp();
 
-// Configure Nodemailer transporter using only environment variables
-const mailTransport = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// Declare Firebase secrets explicitly for v2 Cloud Functions
+const smtpUser = defineSecret("SMTP_USER");
+const smtpPass = defineSecret("SMTP_PASS");
 
-exports.submitLead = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
+const ALLOWED_MIME_TYPES = [
+  "application/pdf",
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "text/csv"
+];
+
+const MAX_FILE_SIZE_BYTES = 25 * 1024 * 1024; // 25 MB
+
+/**
+ * submitLead: Secret-bound HTTP function for processing intake leads & sending email notifications.
+ */
+exports.submitLead = onRequest(
+  { secrets: [smtpUser, smtpPass], cors: true },
+  async (req, res) => {
     if (req.method !== "POST") {
       return res.status(405).send("Method Not Allowed");
     }
@@ -23,7 +34,7 @@ exports.submitLead = functions.https.onRequest((req, res) => {
     try {
       const { name, email, phone, service, message, _subject, company, siteAddress, documentType, urgency } = req.body;
 
-      // 1. Persist to Firestore first
+      // 1. Persist to Firestore
       const leadRef = await admin.firestore().collection("leads").add({
         name: name || "",
         company: company || "",
@@ -40,11 +51,19 @@ exports.submitLead = functions.https.onRequest((req, res) => {
         notification_status: "pending"
       });
 
-      // 2. Notify second via email
+      // 2. Transporter created with explicitly bound secrets
+      const mailTransport = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: smtpUser.value(),
+          pass: smtpPass.value(),
+        },
+      });
+
       const mailOptions = {
         from: '"Alliance Groups Lead System" <noreply@alliancegroups.com.au>',
         to: "info@alliancegroups.com.au",
-        subject: _subject ? `New Alliance Enquiry - ${_subject} - ${leadRef.id}` : `New Alliance Enquiry - ${service} - ${leadRef.id}`,
+        subject: _subject ? `New Alliance Enquiry - ${_subject} - ${leadRef.id}` : `New Alliance Enquiry - ${service || 'General'} - ${leadRef.id}`,
         text: `
           New Lead Received:
           
@@ -66,7 +85,7 @@ exports.submitLead = functions.https.onRequest((req, res) => {
       try {
         await mailTransport.sendMail(mailOptions);
         await leadRef.update({ notification_status: "sent" });
-        console.log("New lead email sent");
+        console.log("New lead email sent successfully");
       } catch (emailError) {
         console.error("Failed to send notification email:", emailError);
         await leadRef.update({ notification_status: "failed", notification_error: emailError.message });
@@ -77,54 +96,78 @@ exports.submitLead = functions.https.onRequest((req, res) => {
       console.error("Error processing lead:", error);
       return res.status(500).json({ success: false, error: "Internal Server Error" });
     }
-  });
-});
+  }
+);
 
-exports.generateUploadUrl = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
+/**
+ * generateUploadUrl: Secure signed URL generator with strict validation & path isolation.
+ */
+exports.generateUploadUrl = onRequest(
+  { cors: true },
+  async (req, res) => {
     if (req.method !== "POST") {
       return res.status(405).send("Method Not Allowed");
     }
 
     try {
-      const { fileName, contentType, leadId } = req.body;
-      
-      if (!leadId || !fileName) {
-        return res.status(400).json({ error: "Missing required fields" });
+      const { fileName, contentType, fileSize, leadId } = req.body;
+
+      if (!leadId || !fileName || !contentType) {
+        return res.status(400).json({ error: "Missing required fields: leadId, fileName, and contentType are required." });
       }
 
-      // Verify lead exists
+      // Validate leadId format
+      if (typeof leadId !== "string" || !/^[a-zA-Z0-9_-]{1,100}$/.test(leadId)) {
+        return res.status(400).json({ error: "Invalid submission ID format." });
+      }
+
+      // Verify submission exists in Firestore
       const leadDoc = await admin.firestore().collection("leads").doc(leadId).get();
       if (!leadDoc.exists) {
-         return res.status(404).json({ error: "Lead not found" });
+        return res.status(404).json({ error: "Submission record not found." });
       }
 
+      // Validate allowed MIME types
+      if (!ALLOWED_MIME_TYPES.includes(contentType)) {
+        return res.status(400).json({ error: `File type ${contentType} is not permitted.` });
+      }
+
+      // Validate file size (max 25MB)
+      if (fileSize && (typeof fileSize !== "number" || fileSize > MAX_FILE_SIZE_BYTES || fileSize <= 0)) {
+        return res.status(400).json({ error: "File size exceeds maximum limit of 25MB." });
+      }
+
+      // Server-side object path generation (isolated under submission ID)
+      const sanitizedFileName = fileName.replace(/[^a-zA-Z0-9.-]/g, "_").substring(0, 100);
+      const uniqueId = admin.firestore().collection("leads").doc().id;
+      const objectName = `compliance-uploads/${leadId}/${Date.now()}_${uniqueId}_${sanitizedFileName}`;
+
       const bucket = admin.storage().bucket();
-      const safeFileName = fileName.replace(/[^a-zA-Z0-9.-]/g, '_');
-      const objectName = `compliance-uploads/${leadId}/${Date.now()}_${safeFileName}`;
       const file = bucket.file(objectName);
 
+      // Expiration set to 5 minutes (quick expiration)
       const options = {
         version: "v4",
         action: "write",
-        expires: Date.now() + 15 * 60 * 1000, // 15 minutes
+        expires: Date.now() + 5 * 60 * 1000,
         contentType: contentType,
       };
 
       const [url] = await file.getSignedUrl(options);
 
-      // Record metadata intent
+      // Track upload intent in Firestore
       await leadDoc.ref.collection("documents").add({
-        fileName: safeFileName,
+        fileName: sanitizedFileName,
         objectName: objectName,
-        status: "uploading",
+        contentType: contentType,
+        status: "pending_upload",
         timestamp: admin.firestore.FieldValue.serverTimestamp()
       });
 
-      return res.status(200).json({ uploadUrl: url, objectName: objectName });
+      return res.status(200).json({ uploadUrl: url, objectName: objectName, expiresAt: Date.now() + 5 * 60 * 1000 });
     } catch (error) {
-      console.error("Error generating signed URL:", error);
+      console.error("Error generating upload URL:", error);
       return res.status(500).json({ error: "Internal Server Error" });
     }
-  });
-});
+  }
+);
