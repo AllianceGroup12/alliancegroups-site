@@ -13,10 +13,16 @@
   },
   "hosting": {
     "public": ".",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase-backend/**",
-      "**/.*",
-      "**/node_modules/**",
+      ".firebase/**",
+      ".git/**",
+      "node_modules/**",
+      ".next/**",
+      ".locust_env/**",
+      ".vscode/**",
       "**/*.log",
       "**/*.py",
       "**/*.sh",
