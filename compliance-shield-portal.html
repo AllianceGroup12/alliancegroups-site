@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) for Campaign & Advertising Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18006768389"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18006768389');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance Shield Portal | Alliance Group</title>
+  <meta name="description" content="Securely upload your compliance documents, ABN, and required insurances to the Alliance Group Compliance Shield Portal." />
+  <link rel="canonical" href="https://www.alliancegroups.com.au/compliance-shield-portal.html" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /* Specific styles for the portal */
+    .portal-container {
+      max-width: 800px;
+      margin: 120px auto 60px;
+      padding: 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .portal-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .portal-header h1 {
+      font-size: 2.5rem;
+      color: #0D3B5C;
+      margin-bottom: 10px;
+    }
+    
+    .portal-form-group {
+      margin-bottom: 24px;
+    }
+    
+    .portal-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .portal-form-group input, 
+    .portal-form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    
+    .drop-zone {
+      border: 2px dashed #1A819A;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      background: #f8fafc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 24px;
+    }
+    
+    .drop-zone.dragover {
+      background: #e0f2fe;
+      border-color: #0D3B5C;
+    }
+    
+    .drop-zone-icon {
+      font-size: 48px;
+      color: #1A819A;
+      margin-bottom: 16px;
+    }
+    
+    .drop-zone-text {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .drop-zone-hint {
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    #file-input {
+      display: none;
+    }
+    
+    .file-list {
+      margin-top: 16px;
+      text-align: left;
+    }
+    
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    
+    .file-remove {
+      color: #ef4444;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .portal-submit {
+      width: 100%;
+      padding: 16px;
+      background: #0D3B5C;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .portal-submit:hover {
+      background: #1A819A;
+    }
+    
+    .form-status {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .status-success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+    
+    .status-error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVIGATION ====== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="asbestos-services.html">Asbestos</a>
+        <a href="construction-services.html">Construction</a>
+        <a href="compliance-shield.html">Compliance Shield™</a>
+        <a href="compliance-shield-portal.html" class="active">Portal</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main>
+    <div class="portal-container">
+      <div class="portal-header">
+        <h1>Compliance Shield™ Portal</h1>
+        <p>Securely upload your compliance documents, insurances, and company details.</p>
+      </div>
+      
+      <form id="portal-form">
+        <div class="portal-form-group">
+          <label for="contact-name">Contact Name *</label>
+          <input type="text" id="contact-name" name="name" required placeholder="Full Name">
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="company-name">Company/Organisation (if applicable)</label>
+          <input type="text" id="company-name" name="company" placeholder="Your Company Pty Ltd">
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="04XX XXX XXX">
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="contact-email">Contact Email *</label>
+          <input type="email" id="contact-email" name="email" required placeholder="contact@company.com.au">
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="site-address">Property/Site Address *</label>
+          <input type="text" id="site-address" name="siteAddress" required placeholder="Full site address">
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="document-type">Document/Review Type *</label>
+          <select id="document-type" name="documentType" required>
+            <option value="">Select Document Type</option>
+            <option value="Asbestos Register">Asbestos Register</option>
+            <option value="Clearance Certificate">Clearance Certificate</option>
+            <option value="Management Plan">Management Plan</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="urgency">Urgency/Deadline *</label>
+          <select id="urgency" name="urgency" required>
+            <option value="">Select Urgency</option>
+            <option value="Standard (3-5 days)">Standard (3-5 days)</option>
+            <option value="Urgent (48 hours)">Urgent (48 hours)</option>
+            <option value="Critical (Immediate)">Critical (Immediate)</option>
+          </select>
+        </div>
+        
+        <div class="portal-form-group">
+          <label for="description">Short Description *</label>
+          <textarea id="description" name="message" rows="3" required placeholder="Briefly describe what needs review..."></textarea>
+        </div>
+        
+        <div class="portal-form-group">
+          <label>Compliance Documents Upload *</label>
+          <p class="drop-zone-hint" style="margin-bottom: 10px;">Please provide the documents required for review.</p>
+          
+          <div class="drop-zone" id="drop-zone">
+            <div class="drop-zone-icon">📄</div>
+            <div class="drop-zone-text">Drag & Drop files here or click to browse</div>
+            <div class="drop-zone-hint">PDF, JPG, PNG up to 20MB</div>
+            <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png">
+          </div>
+          
+          <div class="file-list" id="file-list"></div>
+        </div>
+        
+        <div class="portal-form-group" style="display:flex; align-items:center; gap: 10px;">
+          <input type="checkbox" id="consent" required style="width: auto;">
+          <label for="consent" style="margin: 0; font-weight: normal; font-size: 0.9rem;">I acknowledge and provide consent for Alliance Group to process these documents.</label>
+        </div>
+        
+        <button type="submit" class="portal-submit" id="submit-btn">Securely Submit Documents</button>
+        
+        <div id="form-status" class="form-status"></div>
+      </form>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <p>&copy; 2024 Alliance Group Pty Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileList = document.getElementById('file-list');
+    const form = document.getElementById('portal-form');
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // Configured for production deployment. The exact URL depends on Firebase Hosting/Functions setup.
+    // Ensure to update this URL once the functions are deployed.
+    const API_BASE_URL = 'https://us-central1-alliancegroups-site.cloudfunctions.net'; 
+    
+    let filesToUpload = [];
+
+    // Drag and Drop Handlers
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => dropZone.classList.add('dragover'), false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => dropZone.classList.remove('dragover'), false);
+    });
+
+    dropZone.addEventListener('drop', handleDrop, false);
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', function() { handleFiles(this.files); });
+
+    function handleDrop(e) {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      handleFiles(files);
+    }
+
+    function handleFiles(files) {
+      [...files].forEach(file => {
+        if (file.size > 20 * 1024 * 1024) {
+          alert(`File ${file.name} exceeds 20MB limit.`);
+          return;
+        }
+        filesToUpload.push(file);
+      });
+      updateFileList();
+    }
+
+    function updateFileList() {
+      fileList.innerHTML = '';
+      filesToUpload.forEach((file, index) => {
+        const item = document.createElement('div');
+        item.className = 'file-item';
+        item.innerHTML = `
+          <span>${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+          <span class="file-remove" onclick="removeFile(${index})">✕</span>
+        `;
+        fileList.appendChild(item);
+      });
+      
+      window.removeFile = function(index) {
+        filesToUpload.splice(index, 1);
+        updateFileList();
+      };
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (filesToUpload.length === 0) {
+        alert("Please upload at least one compliance document.");
+        return;
+      }
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Authenticating & Submitting...';
+      
+      statusDiv.className = 'form-status';
+      statusDiv.style.display = 'block';
+      statusDiv.textContent = 'Processing your submission...';
+      
+      if (window.dataLayer) {
+        window.dataLayer.push({ event: 'compliance_shield_start' });
+      }
+      
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        data._subject = "Compliance Shield Intake - " + (data.company || data.name);
+        
+        // 1. Submit Lead Data
+        const leadRes = await fetch(`${API_BASE_URL}/submitLead`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        const leadResult = await leadRes.json();
+        
+        if (!leadRes.ok || !leadResult.success) {
+          throw new Error(leadResult.error || "Failed to submit lead data.");
+        }
+        
+        const leadId = leadResult.id;
+        
+        if (window.dataLayer) {
+          window.dataLayer.push({ event: 'compliance_shield_submit', lead_id: leadId });
+        }
+        
+        // 2. Upload Files via Signed URLs
+        for (let i = 0; i < filesToUpload.length; i++) {
+          const file = filesToUpload[i];
+          submitBtn.textContent = \`Uploading document \${i + 1} of \${filesToUpload.length}...\`;
+          
+          const uploadReq = await fetch(`${API_BASE_URL}/generateUploadUrl`, {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify({
+               fileName: file.name,
+               contentType: file.type || 'application/octet-stream',
+               leadId: leadId
+             })
+          });
+          
+          if (!uploadReq.ok) {
+            throw new Error(\`Failed to authorize upload for \${file.name}\`);
+          }
+          
+          const uploadAuth = await uploadReq.json();
+          
+          const uploadRes = await fetch(uploadAuth.uploadUrl, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': file.type || 'application/octet-stream'
+            },
+            body: file
+          });
+          
+          if (!uploadRes.ok) {
+             throw new Error(\`Failed to upload \${file.name}\`);
+          }
+        }
+        
+        if (window.dataLayer) {
+          window.dataLayer.push({ event: 'document_upload_complete', lead_id: leadId });
+        }
+        
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Securely Submit Documents';
+        statusDiv.className = 'form-status status-success';
+        statusDiv.textContent = 'Documents securely uploaded! A member of our team will review your compliance profile shortly.';
+        
+        form.reset();
+        filesToUpload = [];
+        updateFileList();
+        
+      } catch (err) {
+        console.error("Submission error:", err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Securely Submit Documents';
+        statusDiv.className = 'form-status status-error';
+        statusDiv.textContent = 'An error occurred during submission: ' + err.message + '. Please try again or contact us directly.';
+      }
+    });
+  </script>
+</body>
+</html>
