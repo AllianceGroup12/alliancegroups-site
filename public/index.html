@@ -49,25 +49,103 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <div class="container">
-      <div class="branding">
-        <span aria-hidden="true" class="logo">AG</span>
-        <div>
-          <p class="brand-name">Alliance Groups</p>
-          <p class="brand-tagline">Compliance Shield</p>
+    <!-- Navigation Header -->
+    <!-- Navigation Header -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
         </div>
-      </div>
-      <nav class="primary-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#stakeholders">Stakeholders</a></li>
-          <li><a href="#reports">Reports &amp; Subscriptions</a></li>
-          <li><a href="#removals">Removals/Makesafes</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a class="cta" href="#contact">Get started</a></li>
-        </ul>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        
+        <div class="nav-item dropdown">
+          <a href="asbestos-services.html">Asbestos</a>
+          <div class="dropdown-menu">
+            <a href="asbestos-services.html">All Asbestos Services</a>
+            <a href="asbestos-removal-brisbane.html">Asbestos Removal Brisbane</a>
+            <a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a>
+            <a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Asbestos Removal</a>
+            <a href="asbestos-removal-moreton-bay.html">Moreton Bay Asbestos Removal</a>
+            <a href="asbestos-removal-ipswich.html">Ipswich Asbestos Removal</a>
+            <a href="asbestos-roof-removal.html">Asbestos Roof Removal</a>
+            <a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a>
+            <a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="construction-services.html">Remediation &amp; Defects</a>
+          <div class="dropdown-menu">
+            <a href="construction-services.html">Construction &amp; Remediation</a>
+            <a href="building-remediation-brisbane.html">Building Remediation Brisbane</a>
+            <a href="building-defects-brisbane.html">Building Defect Rectification</a>
+            <a href="building-defect-inspections.html">Building Defect Inspections</a>
+            <a href="building-compliance-brisbane.html">Building Compliance Audit</a>
+            <a href="emergency-building-response.html">Emergency Building Response</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="roof-repairs-brisbane.html">Roofing &amp; Ingress</a>
+          <div class="dropdown-menu">
+            <a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a>
+            <a href="water-ingress-investigation.html">Water Ingress Investigation</a>
+            <a href="roof-leak-investigation.html">Roof Leak Investigation</a>
+            <a href="roof-inspection-brisbane.html">Roof Inspection Brisbane</a>
+            <a href="roof-restoration-brisbane.html">Roof Restoration Brisbane</a>
+            <a href="commercial-roof-repairs.html">Commercial Roof Repairs</a>
+            <a href="emergency-roof-repairs.html">Emergency Roof Repairs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="compliance-shield.html">Compliance Shield™</a>
+          <div class="dropdown-menu">
+            <a href="compliance-shield.html">Compliance Shield™ Overview</a>
+            <a href="app.html">Interactive App &amp; Portal</a>
+            <a href="compliance-shield-portal.html">Document Upload Portal</a>
+            <a href="risk-checker.html">Risk &amp; Scope Checker</a>
+            <a href="ai-triage.html">AI Compliance Triage</a>
+          </div>
+        </div>
+
+        <a href="knowledge/index.html">Knowledge</a>
+        <a href="case-studies/index.html">Case Studies</a>
+        <a href="projects.html">Projects</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="asbestos-services.html" class="mobile-link">Asbestos Services</a>
+      <a href="construction-services.html" class="mobile-link">Remediation &amp; Defects</a>
+      <a href="roof-repairs-brisbane.html" class="mobile-link">Roofing &amp; Ingress</a>
+      <a href="compliance-shield.html" class="mobile-link">Compliance Shield™</a>
+      <a href="app.html" class="mobile-link">Interactive App</a>
+      <a href="risk-checker.html" class="mobile-link">Risk &amp; Scope Checker</a>
+      <a href="knowledge/index.html" class="mobile-link">Knowledge Centre</a>
+      <a href="case-studies/index.html" class="mobile-link">Case Studies</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="reviews.html" class="mobile-link">Reviews</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Get a Quote — 0410 942 905</a>
     </div>
   </header>
 
@@ -123,11 +201,105 @@
 
     <section id="stakeholders" class="section section-light">
       <div class="container">
-        <header class="section-header">
-          <p class="eyebrow">Built for everyone in the property ecosystem</p>
-          <h2>One platform, every stakeholder connected to Compliance Shield.</h2>
-          <p class="section-lead">From individual landlords to large property agencies, Compliance Shield gives each stakeholder the right tools and information to meet their compliance obligations.</p>
-        </header>
+          <!-- Navigation Header -->
+    <!-- Navigation Header -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        
+        <div class="nav-item dropdown">
+          <a href="asbestos-services.html">Asbestos</a>
+          <div class="dropdown-menu">
+            <a href="asbestos-services.html">All Asbestos Services</a>
+            <a href="asbestos-removal-brisbane.html">Asbestos Removal Brisbane</a>
+            <a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a>
+            <a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Asbestos Removal</a>
+            <a href="asbestos-removal-moreton-bay.html">Moreton Bay Asbestos Removal</a>
+            <a href="asbestos-removal-ipswich.html">Ipswich Asbestos Removal</a>
+            <a href="asbestos-roof-removal.html">Asbestos Roof Removal</a>
+            <a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a>
+            <a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="construction-services.html">Remediation &amp; Defects</a>
+          <div class="dropdown-menu">
+            <a href="construction-services.html">Construction &amp; Remediation</a>
+            <a href="building-remediation-brisbane.html">Building Remediation Brisbane</a>
+            <a href="building-defects-brisbane.html">Building Defect Rectification</a>
+            <a href="building-defect-inspections.html">Building Defect Inspections</a>
+            <a href="building-compliance-brisbane.html">Building Compliance Audit</a>
+            <a href="emergency-building-response.html">Emergency Building Response</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="roof-repairs-brisbane.html">Roofing &amp; Ingress</a>
+          <div class="dropdown-menu">
+            <a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a>
+            <a href="water-ingress-investigation.html">Water Ingress Investigation</a>
+            <a href="roof-leak-investigation.html">Roof Leak Investigation</a>
+            <a href="roof-inspection-brisbane.html">Roof Inspection Brisbane</a>
+            <a href="roof-restoration-brisbane.html">Roof Restoration Brisbane</a>
+            <a href="commercial-roof-repairs.html">Commercial Roof Repairs</a>
+            <a href="emergency-roof-repairs.html">Emergency Roof Repairs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="compliance-shield.html">Compliance Shield™</a>
+          <div class="dropdown-menu">
+            <a href="compliance-shield.html">Compliance Shield™ Overview</a>
+            <a href="app.html">Interactive App &amp; Portal</a>
+            <a href="compliance-shield-portal.html">Document Upload Portal</a>
+            <a href="risk-checker.html">Risk &amp; Scope Checker</a>
+            <a href="ai-triage.html">AI Compliance Triage</a>
+          </div>
+        </div>
+
+        <a href="knowledge/index.html">Knowledge</a>
+        <a href="case-studies/index.html">Case Studies</a>
+        <a href="projects.html">Projects</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="asbestos-services.html" class="mobile-link">Asbestos Services</a>
+      <a href="construction-services.html" class="mobile-link">Remediation &amp; Defects</a>
+      <a href="roof-repairs-brisbane.html" class="mobile-link">Roofing &amp; Ingress</a>
+      <a href="compliance-shield.html" class="mobile-link">Compliance Shield™</a>
+      <a href="app.html" class="mobile-link">Interactive App</a>
+      <a href="risk-checker.html" class="mobile-link">Risk &amp; Scope Checker</a>
+      <a href="knowledge/index.html" class="mobile-link">Knowledge Centre</a>
+      <a href="case-studies/index.html" class="mobile-link">Case Studies</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="reviews.html" class="mobile-link">Reviews</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Get a Quote — 0410 942 905</a>
+    </div>
+  </header>
         <div class="stakeholder-flow" aria-label="Compliance Shield stakeholder flow">
           <div class="stakeholder-group" aria-label="Stakeholders">
             <article class="stakeholder-card">
@@ -170,11 +342,105 @@
 
     <section id="features" class="section">
       <div class="container">
-        <header class="section-header">
-          <p class="eyebrow">Platform pillars</p>
-          <h2>Everything you need to manage property compliance end-to-end.</h2>
-          <p class="section-lead">Compliance Shield combines role-based access, automated reporting, and integrated service management so landlords, agencies, and tenants can focus on what matters.</p>
-        </header>
+          <!-- Navigation Header -->
+    <!-- Navigation Header -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        
+        <div class="nav-item dropdown">
+          <a href="asbestos-services.html">Asbestos</a>
+          <div class="dropdown-menu">
+            <a href="asbestos-services.html">All Asbestos Services</a>
+            <a href="asbestos-removal-brisbane.html">Asbestos Removal Brisbane</a>
+            <a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a>
+            <a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Asbestos Removal</a>
+            <a href="asbestos-removal-moreton-bay.html">Moreton Bay Asbestos Removal</a>
+            <a href="asbestos-removal-ipswich.html">Ipswich Asbestos Removal</a>
+            <a href="asbestos-roof-removal.html">Asbestos Roof Removal</a>
+            <a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a>
+            <a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="construction-services.html">Remediation &amp; Defects</a>
+          <div class="dropdown-menu">
+            <a href="construction-services.html">Construction &amp; Remediation</a>
+            <a href="building-remediation-brisbane.html">Building Remediation Brisbane</a>
+            <a href="building-defects-brisbane.html">Building Defect Rectification</a>
+            <a href="building-defect-inspections.html">Building Defect Inspections</a>
+            <a href="building-compliance-brisbane.html">Building Compliance Audit</a>
+            <a href="emergency-building-response.html">Emergency Building Response</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="roof-repairs-brisbane.html">Roofing &amp; Ingress</a>
+          <div class="dropdown-menu">
+            <a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a>
+            <a href="water-ingress-investigation.html">Water Ingress Investigation</a>
+            <a href="roof-leak-investigation.html">Roof Leak Investigation</a>
+            <a href="roof-inspection-brisbane.html">Roof Inspection Brisbane</a>
+            <a href="roof-restoration-brisbane.html">Roof Restoration Brisbane</a>
+            <a href="commercial-roof-repairs.html">Commercial Roof Repairs</a>
+            <a href="emergency-roof-repairs.html">Emergency Roof Repairs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="compliance-shield.html">Compliance Shield™</a>
+          <div class="dropdown-menu">
+            <a href="compliance-shield.html">Compliance Shield™ Overview</a>
+            <a href="app.html">Interactive App &amp; Portal</a>
+            <a href="compliance-shield-portal.html">Document Upload Portal</a>
+            <a href="risk-checker.html">Risk &amp; Scope Checker</a>
+            <a href="ai-triage.html">AI Compliance Triage</a>
+          </div>
+        </div>
+
+        <a href="knowledge/index.html">Knowledge</a>
+        <a href="case-studies/index.html">Case Studies</a>
+        <a href="projects.html">Projects</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="asbestos-services.html" class="mobile-link">Asbestos Services</a>
+      <a href="construction-services.html" class="mobile-link">Remediation &amp; Defects</a>
+      <a href="roof-repairs-brisbane.html" class="mobile-link">Roofing &amp; Ingress</a>
+      <a href="compliance-shield.html" class="mobile-link">Compliance Shield™</a>
+      <a href="app.html" class="mobile-link">Interactive App</a>
+      <a href="risk-checker.html" class="mobile-link">Risk &amp; Scope Checker</a>
+      <a href="knowledge/index.html" class="mobile-link">Knowledge Centre</a>
+      <a href="case-studies/index.html" class="mobile-link">Case Studies</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="reviews.html" class="mobile-link">Reviews</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Get a Quote — 0410 942 905</a>
+    </div>
+  </header>
         <div class="feature-grid">
           <article class="feature-card">
             <h3>User management &amp; onboarding</h3>
@@ -269,11 +535,105 @@
 
     <section id="removals" class="section">
       <div class="container">
-        <header class="section-header">
-          <p class="eyebrow">Removals / Makesafes</p>
-          <h2>End-to-end job management for removal and makesafe services — $1M+/yr.</h2>
-          <p class="section-lead">From a single request to a completed certificate, Compliance Shield manages the entire removals and makesafes workflow. Vetted service providers receive jobs instantly and upload photo evidence on completion.</p>
-        </header>
+          <!-- Navigation Header -->
+    <!-- Navigation Header -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        
+        <div class="nav-item dropdown">
+          <a href="asbestos-services.html">Asbestos</a>
+          <div class="dropdown-menu">
+            <a href="asbestos-services.html">All Asbestos Services</a>
+            <a href="asbestos-removal-brisbane.html">Asbestos Removal Brisbane</a>
+            <a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a>
+            <a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Asbestos Removal</a>
+            <a href="asbestos-removal-moreton-bay.html">Moreton Bay Asbestos Removal</a>
+            <a href="asbestos-removal-ipswich.html">Ipswich Asbestos Removal</a>
+            <a href="asbestos-roof-removal.html">Asbestos Roof Removal</a>
+            <a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a>
+            <a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="construction-services.html">Remediation &amp; Defects</a>
+          <div class="dropdown-menu">
+            <a href="construction-services.html">Construction &amp; Remediation</a>
+            <a href="building-remediation-brisbane.html">Building Remediation Brisbane</a>
+            <a href="building-defects-brisbane.html">Building Defect Rectification</a>
+            <a href="building-defect-inspections.html">Building Defect Inspections</a>
+            <a href="building-compliance-brisbane.html">Building Compliance Audit</a>
+            <a href="emergency-building-response.html">Emergency Building Response</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="roof-repairs-brisbane.html">Roofing &amp; Ingress</a>
+          <div class="dropdown-menu">
+            <a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a>
+            <a href="water-ingress-investigation.html">Water Ingress Investigation</a>
+            <a href="roof-leak-investigation.html">Roof Leak Investigation</a>
+            <a href="roof-inspection-brisbane.html">Roof Inspection Brisbane</a>
+            <a href="roof-restoration-brisbane.html">Roof Restoration Brisbane</a>
+            <a href="commercial-roof-repairs.html">Commercial Roof Repairs</a>
+            <a href="emergency-roof-repairs.html">Emergency Roof Repairs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="compliance-shield.html">Compliance Shield™</a>
+          <div class="dropdown-menu">
+            <a href="compliance-shield.html">Compliance Shield™ Overview</a>
+            <a href="app.html">Interactive App &amp; Portal</a>
+            <a href="compliance-shield-portal.html">Document Upload Portal</a>
+            <a href="risk-checker.html">Risk &amp; Scope Checker</a>
+            <a href="ai-triage.html">AI Compliance Triage</a>
+          </div>
+        </div>
+
+        <a href="knowledge/index.html">Knowledge</a>
+        <a href="case-studies/index.html">Case Studies</a>
+        <a href="projects.html">Projects</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="asbestos-services.html" class="mobile-link">Asbestos Services</a>
+      <a href="construction-services.html" class="mobile-link">Remediation &amp; Defects</a>
+      <a href="roof-repairs-brisbane.html" class="mobile-link">Roofing &amp; Ingress</a>
+      <a href="compliance-shield.html" class="mobile-link">Compliance Shield™</a>
+      <a href="app.html" class="mobile-link">Interactive App</a>
+      <a href="risk-checker.html" class="mobile-link">Risk &amp; Scope Checker</a>
+      <a href="knowledge/index.html" class="mobile-link">Knowledge Centre</a>
+      <a href="case-studies/index.html" class="mobile-link">Case Studies</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="reviews.html" class="mobile-link">Reviews</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Get a Quote — 0410 942 905</a>
+    </div>
+  </header>
         <div class="assurance-grid">
           <article class="assurance-card">
             <h3>Instant job requests</h3>
@@ -316,10 +676,105 @@
 
     <section id="faq" class="section section-light">
       <div class="container">
-        <header class="section-header">
-          <p class="eyebrow">FAQ</p>
-          <h2>Your top questions about Compliance Shield, answered.</h2>
-        </header>
+          <!-- Navigation Header -->
+    <!-- Navigation Header -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Alliance Group Home">
+        <svg class="logo-svg" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D3B5C"/>
+              <stop offset="100%" stop-color="#1A819A"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 5 L75 65 H5 Z" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M22 65 Q40 42 58 65" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">ALLIANCE <strong>GROUP</strong></span>
+          <span class="logo-tagline">STRUCTURE. SAFETY. STANDARDS.</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        
+        <div class="nav-item dropdown">
+          <a href="asbestos-services.html">Asbestos</a>
+          <div class="dropdown-menu">
+            <a href="asbestos-services.html">All Asbestos Services</a>
+            <a href="asbestos-removal-brisbane.html">Asbestos Removal Brisbane</a>
+            <a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a>
+            <a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Asbestos Removal</a>
+            <a href="asbestos-removal-moreton-bay.html">Moreton Bay Asbestos Removal</a>
+            <a href="asbestos-removal-ipswich.html">Ipswich Asbestos Removal</a>
+            <a href="asbestos-roof-removal.html">Asbestos Roof Removal</a>
+            <a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a>
+            <a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="construction-services.html">Remediation &amp; Defects</a>
+          <div class="dropdown-menu">
+            <a href="construction-services.html">Construction &amp; Remediation</a>
+            <a href="building-remediation-brisbane.html">Building Remediation Brisbane</a>
+            <a href="building-defects-brisbane.html">Building Defect Rectification</a>
+            <a href="building-defect-inspections.html">Building Defect Inspections</a>
+            <a href="building-compliance-brisbane.html">Building Compliance Audit</a>
+            <a href="emergency-building-response.html">Emergency Building Response</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="roof-repairs-brisbane.html">Roofing &amp; Ingress</a>
+          <div class="dropdown-menu">
+            <a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a>
+            <a href="water-ingress-investigation.html">Water Ingress Investigation</a>
+            <a href="roof-leak-investigation.html">Roof Leak Investigation</a>
+            <a href="roof-inspection-brisbane.html">Roof Inspection Brisbane</a>
+            <a href="roof-restoration-brisbane.html">Roof Restoration Brisbane</a>
+            <a href="commercial-roof-repairs.html">Commercial Roof Repairs</a>
+            <a href="emergency-roof-repairs.html">Emergency Roof Repairs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="compliance-shield.html">Compliance Shield™</a>
+          <div class="dropdown-menu">
+            <a href="compliance-shield.html">Compliance Shield™ Overview</a>
+            <a href="app.html">Interactive App &amp; Portal</a>
+            <a href="compliance-shield-portal.html">Document Upload Portal</a>
+            <a href="risk-checker.html">Risk &amp; Scope Checker</a>
+            <a href="ai-triage.html">AI Compliance Triage</a>
+          </div>
+        </div>
+
+        <a href="knowledge/index.html">Knowledge</a>
+        <a href="case-studies/index.html">Case Studies</a>
+        <a href="projects.html">Projects</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="asbestos-services.html" class="mobile-link">Asbestos Services</a>
+      <a href="construction-services.html" class="mobile-link">Remediation &amp; Defects</a>
+      <a href="roof-repairs-brisbane.html" class="mobile-link">Roofing &amp; Ingress</a>
+      <a href="compliance-shield.html" class="mobile-link">Compliance Shield™</a>
+      <a href="app.html" class="mobile-link">Interactive App</a>
+      <a href="risk-checker.html" class="mobile-link">Risk &amp; Scope Checker</a>
+      <a href="knowledge/index.html" class="mobile-link">Knowledge Centre</a>
+      <a href="case-studies/index.html" class="mobile-link">Case Studies</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="reviews.html" class="mobile-link">Reviews</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Get a Quote — 0410 942 905</a>
+    </div>
+  </header>
         <div class="accordion" data-accordion>
           <div class="accordion-item">
             <button class="accordion-trigger" aria-expanded="false">
@@ -421,39 +876,73 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <p class="brand-name">Alliance Groups</p>
-        <p class="footer-copy">Australia's property compliance platform — connecting landlords, agencies, and tenants through Compliance Shield.</p>
+    <!-- Footer -->
+    <!-- Footer -->
+  <footer class="footer bg-dark">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-name">ALLIANCE <strong>GROUP</strong></div>
+          <p class="footer-tagline">Structure. Safety. Standards. &bull; Priority Response. Not From Zero.</p>
+          <p class="footer-desc">Class A &amp; B Licensed Asbestos Removal &bull; WHS Certified & Compliant &bull; South East Queensland.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Asbestos &amp; Hazmat</h4>
+          <ul>
+            <li><a href="asbestos-services.html">Asbestos Testing &amp; Removal</a></li>
+            <li><a href="asbestos-removal-brisbane.html">Brisbane Asbestos Removal</a></li>
+            <li><a href="asbestos-removal-gold-coast.html">Gold Coast Asbestos Removal</a></li>
+            <li><a href="asbestos-removal-sunshine-coast.html">Sunshine Coast Removal</a></li>
+            <li><a href="asbestos-roof-removal.html">Asbestos Roof Removal</a></li>
+            <li><a href="asbestos-management-plans-queensland.html">Asbestos Management Plans</a></li>
+            <li><a href="asbestos-registers-queensland.html">Asbestos Registers QLD</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Remediation &amp; Roofing</h4>
+          <ul>
+            <li><a href="construction-services.html">Construction &amp; Remediation</a></li>
+            <li><a href="building-remediation-brisbane.html">Building Remediation</a></li>
+            <li><a href="building-defects-brisbane.html">Building Defect Rectification</a></li>
+            <li><a href="building-defect-inspections.html">Defect Inspections</a></li>
+            <li><a href="water-ingress-investigation.html">Water Ingress Diagnostics</a></li>
+            <li><a href="roof-repairs-brisbane.html">Roof Repairs Brisbane</a></li>
+            <li><a href="roof-leak-investigation.html">Roof Leak Investigation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Compliance &amp; Resources</h4>
+          <ul>
+            <li><a href="compliance-shield.html">Compliance Shield™</a></li>
+            <li><a href="app.html">Interactive App &amp; Portal</a></li>
+            <li><a href="risk-checker.html">Risk &amp; Scope Checker</a></li>
+            <li><a href="ai-triage.html">AI Compliance Triage</a></li>
+            <li><a href="knowledge/index.html">Knowledge Centre</a></li>
+            <li><a href="case-studies/index.html">Case Studies</a></li>
+            <li><a href="projects.html">Completed Projects</a></li>
+            <li><a href="reviews.html">Client Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Alliance</h4>
+          <p class="footer-contact-item">&#128222; <a href="tel:0410942905" style="color:inherit;text-decoration:underline;">0410 942 905</a></p>
+          <p class="footer-contact-item">&#9993; info@alliancegroups.com.au</p>
+          <p class="footer-contact-item">&#128205; South East Queensland (Brisbane, Gold Coast, Sunshine Coast, Moreton Bay, Ipswich)</p>
+          <div style="margin-top: 12px;">
+            <a href="contact.html" class="btn btn-primary btn-sm" style="font-size:0.8rem;padding:8px 16px;">Request Quote / Inspection</a>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Platform</h3>
-        <ul>
-          <li><a href="#features">Platform features</a></li>
-          <li><a href="#reports">Reports &amp; Subscriptions</a></li>
-          <li><a href="#removals">Removals / Makesafes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Stakeholders</h3>
-        <ul>
-          <li><a href="#stakeholders">Landlords</a></li>
-          <li><a href="#stakeholders">Property Managers</a></li>
-          <li><a href="#stakeholders">Venues &amp; Institutions</a></li>
-          <li><a href="#stakeholders">Tenants</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Stay informed</h3>
-        <form class="footer-form" aria-label="Subscribe to compliance insights">
-          <label class="sr-only" for="newsletter-email">Email address</label>
-          <input id="newsletter-email" type="email" placeholder="Email address">
-          <button type="submit">Subscribe</button>
-        </form>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footerYear">2026</span> Alliance Building &amp; Hazmat Group Pty Ltd. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="refunds.html">Refund Policy</a>
+          <a href="shipping.html">Shipping &amp; Delivery</a>
+        </div>
       </div>
     </div>
-    <p class="footer-legal">© <span data-year></span> Alliance Groups. All rights reserved.</p>
   </footer>
 
   <script src="./scripts.js" defer></script>
