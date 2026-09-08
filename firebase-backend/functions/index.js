@@ -7,10 +7,18 @@
 const { onRequest } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
+const { getFirestore, FieldValue, Timestamp } = require("firebase-admin/firestore");
+const { getStorage } = require("firebase-admin/storage");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
-admin.initializeApp();
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
+
+// Convenience accessors
+const db = () => getFirestore();
+const storage = () => getStorage();
 
 // ── Secrets (explicitly declared; accessible only within bound functions) ──
 const smtpUser = defineSecret("SMTP_USER");
@@ -43,7 +51,12 @@ if (process.env.FUNCTIONS_EMULATOR === "true") {
                        "http://localhost:8080", "http://127.0.0.1:8080");
 }
 
-// ── In-memory rate limiter (resets on cold start; sufficient for abuse control) ─
+// ── In-memory rate limiter ────────────────────────────────────────────────
+// LIMITATION: This limiter is per Cloud Functions instance and resets on
+// cold start. It is a lightweight first layer against naive burst abuse.
+// It does NOT provide globally enforced, distributed rate limiting across
+// all running instances. For distributed enforcement, integrate
+// Cloud Armor, Firebase App Check, or a shared Firestore/Redis counter.
 const requestCounts = new Map();
 function rateLimit(ip, windowMs = 60_000, maxRequests = 20) {
   const now = Date.now();
@@ -174,7 +187,7 @@ exports.submitLead = onRequest(
         documentType, urgency, message,
         subject: _subject || (isCS ? "Compliance Shield Intake" : "New Website Lead"),
         isComplianceShield: isCS,
-        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+        timestamp: FieldValue.serverTimestamp(),
         status: isCS ? "intake_pending" : "new",
         notification_status: "pending",
         sourceIp: ip,
@@ -185,11 +198,11 @@ exports.submitLead = onRequest(
         uploadToken = generateUploadToken();
         // Store a hash so the raw token is never persisted
         leadData.uploadTokenHash = crypto.createHash("sha256").update(uploadToken).digest("hex");
-        leadData.uploadSessionExpiresAt = admin.firestore.Timestamp.fromMillis(Date.now() + UPLOAD_SESSION_TTL_MS);
+        leadData.uploadSessionExpiresAt = Timestamp.fromMillis(Date.now() + UPLOAD_SESSION_TTL_MS);
         leadData.uploadedDocCount = 0;
       }
 
-      const leadRef = await admin.firestore().collection("leads").add(leadData);
+      const leadRef = await db().collection("leads").add(leadData);
       const leadId = leadRef.id;
 
       // For general enquiries, send notification immediately
@@ -273,7 +286,7 @@ exports.generateUploadUrl = onRequest(
 
     try {
       // Load lead
-      const leadDoc = await admin.firestore().collection("leads").doc(leadId).get();
+      const leadDoc = await db().collection("leads").doc(leadId).get();
       if (!leadDoc.exists) return res.status(404).json({ error: "Submission not found." });
       const leadData = leadDoc.data();
 
@@ -288,47 +301,70 @@ exports.generateUploadUrl = onRequest(
         return res.status(403).json({ error: "Invalid upload token." });
       }
 
-      // Session expiry
+      // Session expiry check
       const sessionExpiry = leadData.uploadSessionExpiresAt?.toMillis?.() ?? 0;
       if (Date.now() > sessionExpiry) {
         return res.status(403).json({ error: "Upload session has expired. Please re-submit the intake form." });
       }
 
-      // Document count limit
-      const docCount = leadData.uploadedDocCount || 0;
-      if (docCount >= MAX_DOCS_PER_SUBMISSION) {
-        return res.status(403).json({ error: `Maximum of ${MAX_DOCS_PER_SUBMISSION} documents per submission.` });
+      // Document count limit — enforced inside a Firestore transaction to prevent
+      // concurrent requests bypassing the limit by issuing multiple URLs before
+      // any finalization increments uploadedDocCount.
+      const firestoreDb = db();
+      const leadRef2 = firestoreDb.collection("leads").doc(leadId);
+
+      let signedUrl, objectName, docRefId;
+      try {
+        await firestoreDb.runTransaction(async (tx) => {
+          // Count all active document records: pending or already uploaded
+          const activeDocs = await tx.get(
+            leadRef2.collection("documents")
+              .where("status", "in", ["pending_upload", "uploaded"])
+          );
+          if (activeDocs.size >= MAX_DOCS_PER_SUBMISSION) {
+            throw Object.assign(
+              new Error(`Maximum of ${MAX_DOCS_PER_SUBMISSION} documents per submission.`),
+              { statusCode: 403 }
+            );
+          }
+
+          // Reserve slot by writing the document record inside the transaction
+          const sanitizedName = fileName.replace(/[^a-zA-Z0-9._-]/g, "_").substring(0, 100);
+          const uniqueId = firestoreDb.collection("_").doc().id;
+          objectName = `compliance-uploads/${leadId}/${Date.now()}_${uniqueId}_${sanitizedName}`;
+
+          const newDocRef = leadRef2.collection("documents").doc();
+          docRefId = newDocRef.id;
+          tx.set(newDocRef, {
+            fileName: sanitizedName,
+            objectName,
+            contentType,
+            declaredSize: fileSize,
+            status: "pending_upload",
+            createdAt: FieldValue.serverTimestamp(),
+          });
+        });
+      } catch (txErr) {
+        if (txErr.statusCode === 403) {
+          return res.status(403).json({ error: txErr.message });
+        }
+        throw txErr; // re-throw for outer catch
       }
 
-      // Server-side path — browser cannot influence bucket or prefix
-      const sanitizedName = fileName.replace(/[^a-zA-Z0-9._-]/g, "_").substring(0, 100);
-      const uniqueId = admin.firestore().collection("_").doc().id;
-      const objectName = `compliance-uploads/${leadId}/${Date.now()}_${uniqueId}_${sanitizedName}`;
-
-      const bucket = admin.storage().bucket();
+      // Generate signed URL after the slot is reserved in Firestore
+      const bucket = storage().bucket();
       const file = bucket.file(objectName);
-
-      const [signedUrl] = await file.getSignedUrl({
+      [signedUrl] = await file.getSignedUrl({
         version: "v4",
         action: "write",
         expires: Date.now() + SIGNED_URL_TTL_MS,
         contentType: contentType,
       });
 
-      // Record pending document
-      const docRef = await leadDoc.ref.collection("documents").add({
-        fileName: sanitizedName,
-        objectName,
-        contentType,
-        declaredSize: fileSize,
-        status: "pending_upload",
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      });
-
       return res.status(200).json({
         uploadUrl: signedUrl,
         objectName,
-        documentId: docRef.id,
+        documentId: docRefId,
         expiresAt: Date.now() + SIGNED_URL_TTL_MS,
       });
 
@@ -363,7 +399,7 @@ exports.finalizeUpload = onRequest(
     }
 
     try {
-      const leadDoc = await admin.firestore().collection("leads").doc(leadId).get();
+      const leadDoc = await db().collection("leads").doc(leadId).get();
       if (!leadDoc.exists) return res.status(404).json({ error: "Submission not found." });
       const leadData = leadDoc.data();
 
@@ -377,6 +413,12 @@ exports.finalizeUpload = onRequest(
         return res.status(403).json({ error: "Invalid upload token." });
       }
 
+      // Session expiry check — must be verified here, not only at URL generation
+      const sessionExpiry = leadData.uploadSessionExpiresAt?.toMillis?.() ?? 0;
+      if (Date.now() > sessionExpiry) {
+        return res.status(403).json({ error: "Upload session has expired." });
+      }
+
       // Load document metadata
       const docRef = leadDoc.ref.collection("documents").doc(documentId);
       const docSnap = await docRef.get();
@@ -388,7 +430,7 @@ exports.finalizeUpload = onRequest(
       }
 
       // Verify object exists in Cloud Storage
-      const bucket = admin.storage().bucket();
+      const bucket = storage().bucket();
       const file = bucket.file(docData.objectName);
       const [exists] = await file.exists();
 
@@ -421,7 +463,7 @@ exports.finalizeUpload = onRequest(
         status: "uploaded",
         verifiedSize: actualSize,
         verifiedContentType: actualContentType,
-        uploadedAt: admin.firestore.FieldValue.serverTimestamp(),
+        uploadedAt: FieldValue.serverTimestamp(),
       });
 
       // Increment document count on lead
@@ -468,7 +510,7 @@ exports.markSubmissionReady = onRequest(
     }
 
     try {
-      const leadDoc = await admin.firestore().collection("leads").doc(leadId).get();
+      const leadDoc = await db().collection("leads").doc(leadId).get();
       if (!leadDoc.exists) return res.status(404).json({ error: "Submission not found." });
       const leadData = leadDoc.data();
 
@@ -479,6 +521,12 @@ exports.markSubmissionReady = onRequest(
       const tokenHash = crypto.createHash("sha256").update(uploadToken).digest("hex");
       if (tokenHash !== leadData.uploadTokenHash) {
         return res.status(403).json({ error: "Invalid upload token." });
+      }
+
+      // Session expiry check — markSubmissionReady must be called within session window
+      const sessionExpiry = leadData.uploadSessionExpiresAt?.toMillis?.() ?? 0;
+      if (Date.now() > sessionExpiry) {
+        return res.status(403).json({ error: "Upload session has expired. Submission cannot be finalised." });
       }
 
       if (leadData.status === "submission_ready") {
@@ -497,7 +545,7 @@ exports.markSubmissionReady = onRequest(
       await leadDoc.ref.update({
         status: "submission_ready",
         verifiedDocCount: verifiedCount,
-        submittedAt: admin.firestore.FieldValue.serverTimestamp(),
+        submittedAt: FieldValue.serverTimestamp(),
       });
 
       // Send final notification email
