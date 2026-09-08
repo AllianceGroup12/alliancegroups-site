@@ -1,0 +1,28 @@
+; ==============================================================================
+; GoDaddy DNS Zone Configuration: alliancegroups.com.au & AUasbestos.com.au
+; ==============================================================================
+
+; --- 1. DOMAIN: alliancegroups.com.au ---
+; DNS Records to ensure www.alliancegroups.com.au is live, fast & verified
+
+; CNAME Records
+www    600    IN    CNAME    ghs.googlehosted.com.
+
+; TXT Records (Domain Verification & Security)
+@      3600   IN    TXT      "v=spf1 include:_spf.google.com ~all"
+
+; Domain Forwarding (In GoDaddy Domain Settings):
+; Source: http://alliancegroups.com.au (Root)
+; Destination: https://www.alliancegroups.com.au
+; Type: 301 Permanent Redirect
+; Masking: None (Forward Only)
+
+
+; --- 2. DOMAIN: AUasbestos.com.au ---
+; Removes GoDaddy Parking Page and Routes All Google Product Links to Active Store
+
+; Domain Forwarding (In GoDaddy Domain Settings):
+; Source: http://auasbestos.com.au & https://auasbestos.com.au
+; Destination: https://www.alliancegroups.com.au/asbestos-services.html
+; Type: 301 Permanent Redirect
+; Masking: None (Forward Only)

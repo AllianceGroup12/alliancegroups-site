@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // All public access is denied by default.
+    // Uploads are handled exclusively via server-signed URLs generated
+    // by the generateUploadUrl Cloud Function, which enforces:
+    //   - valid upload session token
+    //   - MIME type whitelist
+    //   - file size limit
+    //   - submission existence check
+    //
+    // No client SDK reads or writes are permitted.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
