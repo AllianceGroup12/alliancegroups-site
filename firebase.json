@@ -1,0 +1,26 @@
+{
+  "functions": {
+    "source": "firebase-backend/functions",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ]
+  },
+  "firestore": {
+    "rules": "firebase-backend/firestore.rules"
+  },
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase-backend/**",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.log",
+      "**/*.py",
+      "**/*.sh",
+      "**/*.csv"
+    ]
+  }
+}
