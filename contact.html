@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact 7P Digital Solutions - Get in touch with our cloud architects and AI engineers.">
-  <title>Contact Us | 7P Digital Solutions</title>
+  <meta name="description" content="Contact Alliance Group - Building, Metal Roofing, and Asbestos Removal Specialist in Queensland.">
+  <title>Contact Us | Alliance Group Building, Roofing & Hazmat QLD</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,28 +13,31 @@
   <header class="site-header">
     <div class="container header-nav">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">7P</div>
-        <span>7P Platform</span>
+        <div class="brand-icon">AG</div>
+        <span>Alliance Group</span>
       </a>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+          <li><a href="case-studies.html" class="nav-link">Projects</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
       </nav>
-      <a href="contact.html" class="btn btn-primary">Get Started</a>
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
+        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero Banner -->
   <section class="hero-section" style="padding: 5rem 0 3rem;">
     <div class="container">
-      <div class="hero-tag">📬 Get In Touch</div>
-      <h1 class="hero-title">Start Your Engineering <span class="gradient-text">Transformation</span></h1>
-      <p class="hero-subtitle">Speak directly with our technical lead team. We reply within 2 hours during active business hours.</p>
+      <div class="hero-tag">📞 Queensland Wide Service & Estimations</div>
+      <h1 class="hero-title">Request a Free Site Inspection & <span class="gradient-text">Quote</span></h1>
+      <p class="hero-subtitle">Get in touch with our licensed building, roofing, and hazmat estimators. 24/7 Emergency response teams available statewide.</p>
     </div>
   </section>
 
@@ -43,70 +46,88 @@
     <div class="container">
       <div class="grid-2">
 
-        <!-- Contact Form -->
+        <!-- Inquiry Form -->
         <div class="glass-card">
-          <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Send Us a Message</h3>
+          <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Online Inspection & Quote Request</h3>
           <form id="contactForm" onsubmit="handleFormSubmit(event)">
             <div class="form-group">
-              <label for="fullName" class="form-label">Full Name *</label>
-              <input type="text" id="fullName" class="form-control" placeholder="e.g. Jane Doe" required>
+              <label for="fullName" class="form-label">Full Name / Business Name *</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. John Smith (ABC Property Corp)" required>
             </div>
             <div class="form-group">
-              <label for="emailAddress" class="form-label">Work Email *</label>
-              <input type="email" id="emailAddress" class="form-control" placeholder="e.g. jane@company.com" required>
+              <label for="phoneNumber" class="form-label">Phone Number *</label>
+              <input type="tel" id="phoneNumber" class="form-control" placeholder="e.g. 0400 123 456" required>
             </div>
             <div class="form-group">
-              <label for="serviceType" class="form-label">Primary Interest</label>
+              <label for="emailAddress" class="form-label">Email Address *</label>
+              <input type="email" id="emailAddress" class="form-control" placeholder="e.g. john@domain.com.au" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceType" class="form-label">Required Service Division</label>
               <select id="serviceType" class="form-control">
-                <option value="cloud">Cloud Architecture & Migration</option>
-                <option value="ai">AI Agent Integration & LLMs</option>
-                <option value="web">Custom Web App Development</option>
-                <option value="data">Petabyte Data Engineering</option>
+                <option value="asbestos">Class A or B Asbestos Removal</option>
+                <option value="roofing">Commercial / Residential Roofing & Re-roofing</option>
+                <option value="building">Commercial & Insurance Building Repairs</option>
+                <option value="emergency">24/7 Emergency Make-Safe / Storm Damage</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="messageContent" class="form-label">Project Details *</label>
-              <textarea id="messageContent" class="form-control" placeholder="Tell us about your timeline, current stack, and key objectives..." required></textarea>
+              <label for="location" class="form-label">Property Location (QLD Suburb / Postcode) *</label>
+              <input type="text" id="location" class="form-control" placeholder="e.g. Brisbane CBD / Gold Coast / Sunshine Coast" required>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+            <div class="form-group">
+              <label for="messageContent" class="form-label">Project Scope & Details *</label>
+              <textarea id="messageContent" class="form-control" placeholder="Describe your roof condition, building requirements, or asbestos location..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Quote Request</button>
           </form>
 
           <div id="formSuccess" style="display: none; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 1.5rem; text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
-            <h4 style="color: #34d399; margin-bottom: 0.5rem;">Inquiry Received!</h4>
-            <p style="font-size: 0.9rem;">Thank you for contacting 7P. A senior solution engineer will reach out shortly.</p>
+            <h4 style="color: #34d399; margin-bottom: 0.5rem;">Request Submitted Successfully!</h4>
+            <p style="font-size: 0.9rem;">Thank you for reaching out to Alliance Group. An estimator will review your details and contact you shortly.</p>
           </div>
         </div>
 
-        <!-- Contact Information & FAQ -->
+        <!-- Contact Details & Direct Hotline -->
         <div>
           <div class="glass-card" style="margin-bottom: 2rem;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Direct Global Contacts</h3>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem;">Queensland Offices & Emergency Hotline</h3>
+            
             <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
-              <div style="font-size: 1.5rem; width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📧</div>
+              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(239, 68, 68, 0.2); display: grid; place-items: center;">🚨</div>
               <div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary);">Direct Email</div>
-                <div style="font-weight: 600; color: var(--text-primary);">solutions@7p-platform.io</div>
+                <div style="font-size: 0.8rem; color: #fca5a5; font-weight: 600;">24/7 Emergency Dispatch</div>
+                <div style="font-weight: 800; font-size: 1.25rem; color: var(--text-primary);">1300 000 AGQ (1300 000 247)</div>
               </div>
             </div>
+
             <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
-              <div style="font-size: 1.5rem; width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">🏢</div>
+              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📧</div>
               <div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary);">Engineering HQ</div>
-                <div style="font-weight: 600; color: var(--text-primary);">Sydney • San Francisco • London</div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">General Enquiries & Tenders</div>
+                <div style="font-weight: 600; color: var(--text-primary);">admin@alliancegroupqld.com.au</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📍</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">State Headquarters</div>
+                <div style="font-weight: 600; color: var(--text-primary);">Brisbane • Gold Coast • Sunshine Coast QLD</div>
               </div>
             </div>
           </div>
 
           <div class="glass-card">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h3>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Licensing & Compliance FAQs</h3>
             <div style="margin-bottom: 1rem;">
-              <h4 style="font-size: 1rem; color: var(--accent-primary); margin-bottom: 0.3rem;">What is your typical project kickoff timeline?</h4>
-              <p style="font-size: 0.9rem;">Following an initial technical discovery session, our engineering teams can assemble and initiate sprints within 5 to 7 business days.</p>
+              <h4 style="font-size: 0.95rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Are you licensed for both Class A and Class B asbestos removal?</h4>
+              <p style="font-size: 0.85rem;">Yes. Alliance Group holds Class A (friable asbestos) and Class B (bonded asbestos) licenses issued by WorkSafe Queensland, allowing us to safely manage any asbestos contamination.</p>
             </div>
             <div>
-              <h4 style="font-size: 1rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Do you support ongoing maintenance contracts?</h4>
-              <p style="font-size: 0.9rem;">Yes, we offer 24/7 SRE monitoring, automated dependency auditing, and SLA-backed infrastructure support.</p>
+              <h4 style="font-size: 0.95rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Do you assist with insurance claims?</h4>
+              <p style="font-size: 0.85rem;">Yes, we regularly work directly with major Australian insurance assessors to provide rapid storm damage reports, make-safe tarping, and full scope reconstruction.</p>
             </div>
           </div>
         </div>
@@ -130,41 +151,41 @@
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">7P</div>
-            <span>7P Platform</span>
+            <div class="brand-icon">AG</div>
+            <span>Alliance Group</span>
           </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Building next-generation digital experiences and high-performance cloud intelligence.</p>
+          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
         </div>
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4>Divisions</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Building Construction</a></li>
+            <li><a href="services.html">Metal Roofing Solutions</a></li>
+            <li><a href="services.html">Class A & B Asbestos</a></li>
+            <li><a href="services.html">Hazmat Decontamination</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Solutions</h4>
+          <h4>Coverage Areas</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Cloud Architecture</a></li>
-            <li><a href="services.html">AI Automation</a></li>
-            <li><a href="services.html">Data Engineering</a></li>
-            <li><a href="services.html">Custom Web Apps</a></li>
+            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Gold Coast & Hinterland</a></li>
+            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Connect</h4>
+          <h4>Compliance & Licensing</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Contact Support</a></li>
-            <li><a href="contact.html">Book Demo</a></li>
-            <li><a href="https://github.com" target="_blank">GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="about.html">QBCC License #1539201</a></li>
+            <li><a href="about.html">Class A Asbestos #230491</a></li>
+            <li><a href="about.html">WorkSafe QLD Approved</a></li>
+            <li><a href="about.html">ISO 45001 Certified</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 7P Digital Solutions Inc. All rights reserved.</p>
+        <p>&copy; 2026 Alliance Group Building, Roofing & Hazmat Queensland. All rights reserved.</p>
       </div>
     </div>
   </footer>
