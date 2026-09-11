@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact 7P Digital Solutions - Get in touch with our cloud architects and AI engineers.">
+  <title>Contact Us | 7P Digital Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container header-nav">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">7P</div>
+        <span>7P Platform</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-section" style="padding: 5rem 0 3rem;">
+    <div class="container">
+      <div class="hero-tag">📬 Get In Touch</div>
+      <h1 class="hero-title">Start Your Engineering <span class="gradient-text">Transformation</span></h1>
+      <p class="hero-subtitle">Speak directly with our technical lead team. We reply within 2 hours during active business hours.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info Grid -->
+  <section>
+    <div class="container">
+      <div class="grid-2">
+
+        <!-- Contact Form -->
+        <div class="glass-card">
+          <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Send Us a Message</h3>
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name *</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. Jane Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="emailAddress" class="form-label">Work Email *</label>
+              <input type="email" id="emailAddress" class="form-control" placeholder="e.g. jane@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceType" class="form-label">Primary Interest</label>
+              <select id="serviceType" class="form-control">
+                <option value="cloud">Cloud Architecture & Migration</option>
+                <option value="ai">AI Agent Integration & LLMs</option>
+                <option value="web">Custom Web App Development</option>
+                <option value="data">Petabyte Data Engineering</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="messageContent" class="form-label">Project Details *</label>
+              <textarea id="messageContent" class="form-control" placeholder="Tell us about your timeline, current stack, and key objectives..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+          </form>
+
+          <div id="formSuccess" style="display: none; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 1.5rem; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+            <h4 style="color: #34d399; margin-bottom: 0.5rem;">Inquiry Received!</h4>
+            <p style="font-size: 0.9rem;">Thank you for contacting 7P. A senior solution engineer will reach out shortly.</p>
+          </div>
+        </div>
+
+        <!-- Contact Information & FAQ -->
+        <div>
+          <div class="glass-card" style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Direct Global Contacts</h3>
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
+              <div style="font-size: 1.5rem; width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📧</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Direct Email</div>
+                <div style="font-weight: 600; color: var(--text-primary);">solutions@7p-platform.io</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
+              <div style="font-size: 1.5rem; width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">🏢</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Engineering HQ</div>
+                <div style="font-weight: 600; color: var(--text-primary);">Sydney • San Francisco • London</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h3>
+            <div style="margin-bottom: 1rem;">
+              <h4 style="font-size: 1rem; color: var(--accent-primary); margin-bottom: 0.3rem;">What is your typical project kickoff timeline?</h4>
+              <p style="font-size: 0.9rem;">Following an initial technical discovery session, our engineering teams can assemble and initiate sprints within 5 to 7 business days.</p>
+            </div>
+            <div>
+              <h4 style="font-size: 1rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Do you support ongoing maintenance contracts?</h4>
+              <p style="font-size: 0.9rem;">Yes, we offer 24/7 SRE monitoring, automated dependency auditing, and SLA-backed infrastructure support.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form Script -->
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-icon">7P</div>
+            <span>7P Platform</span>
+          </div>
+          <p style="max-width: 300px; font-size: 0.9rem;">Building next-generation digital experiences and high-performance cloud intelligence.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Cloud Architecture</a></li>
+            <li><a href="services.html">AI Automation</a></li>
+            <li><a href="services.html">Data Engineering</a></li>
+            <li><a href="services.html">Custom Web Apps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="contact.html">Book Demo</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 7P Digital Solutions Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
