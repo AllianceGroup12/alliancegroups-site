@@ -1,0 +1,19 @@
+{
+  "name": "conductor",
+  "version": "0.3.0",
+  "description": "Conductor plugin for Google Antigravity: Context initialization, multi-track feature/bug lifecycle, interactive implementation execution, spec audits, git-aware rollbacks, and status reporting.",
+  "author": {
+    "name": "Antigravity Team"
+  },
+  "license": "MIT",
+  "keywords": [
+    "conductor",
+    "tracks",
+    "spec",
+    "implementation",
+    "review",
+    "revert",
+    "status",
+    "antigravity"
+  ]
+}

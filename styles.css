@@ -486,9 +486,23 @@ textarea.form-control {
   color: #64748b;
 }
 
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.btn-header-pay {
+  margin-right: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
 @media (max-width: 768px) {
   .hero-title { font-size: 2.25rem; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .top-bar { display: none; }
 }
+

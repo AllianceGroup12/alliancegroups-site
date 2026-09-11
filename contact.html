@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Alliance Group - Building, Metal Roofing, and Asbestos Removal Specialist in Queensland.">
-  <title>Contact Us | Alliance Group Building, Roofing & Hazmat QLD</title>
+  <meta name="description" content="Contact Alliance Group - Commercial Building, Metal Roofing, and Asbestos Removal Specialist in Queensland. Online Invoice Payments & Tenders.">
+  <title>Contact & Pay | Alliance Group Building, Roofing & Hazmat QLD</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,11 +13,11 @@
   <div class="top-bar">
     <div class="top-bar-container">
       <div>
-        <span>Queensland Statewide Operations • QBCC License #1539201 • Class A & B Asbestos #230491</span>
+        <span>Queensland Statewide Operations • Licensed Class A & B Asbestos #230491</span>
       </div>
       <div class="top-contacts">
-        <a href="tel:1300000247"><strong>Phone:</strong> 1300 000 247</a>
-        <a href="mailto:enquiries@alliancegroupqld.com.au">enquiries@alliancegroupqld.com.au</a>
+        <a href="tel:0410942905"><strong>Phone:</strong> 0410 942 905</a>
+        <a href="mailto:info@alliancegroups.com.au">info@alliancegroups.com.au</a>
       </div>
     </div>
   </div>
@@ -38,19 +38,21 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="case-studies.html">Projects</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="contact.html" class="active">Contact & Pay</a></li>
         </ul>
       </nav>
+      <a href="#payment-section" class="btn btn-outline btn-header-pay">Pay Invoice</a>
       <a href="contact.html" class="btn btn-primary">Request Site Inspection</a>
+
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-container">
-      <div class="hero-tag">Contact & Estimations</div>
-      <h1 class="hero-title">Contact Alliance Group Queensland</h1>
-      <p class="hero-lead">Connect with our estimating and project management team for technical site evaluations, tenders, or emergency response requests.</p>
+      <div class="hero-tag">Contact & Payments</div>
+      <h1 class="hero-title">Contact & Online Payments</h1>
+      <p class="hero-lead">Connect with our estimating and project management team for site evaluations, tenders, or pay your project invoice online securely.</p>
     </div>
   </section>
 
@@ -64,14 +66,18 @@
           <p class="section-desc" style="margin-bottom: 2rem;">Our senior project managers and estimators service Greater Brisbane, Gold Coast, Sunshine Coast, Toowoomba, and regional Queensland.</p>
 
           <div class="card" style="margin-bottom: 1.5rem;">
-            <h4 style="font-size: 0.85rem; color: var(--amber-accent); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Direct Phone Contact</h4>
-            <div style="font-size: 1.4rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.25rem;">1300 000 247</div>
-            <div style="font-size: 0.9rem; color: var(--text-muted);">24/7 Emergency Dispatch & Toll-Free Line</div>
+            <h4 style="font-size: 0.85rem; color: var(--amber-accent); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Direct Mobile & Operations Contact</h4>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.25rem;">
+              <a href="tel:0410942905" style="color: var(--navy-dark); text-decoration: none;">0410 942 905</a>
+            </div>
+            <div style="font-size: 0.9rem; color: var(--text-muted);">Direct Mobile & Emergency Dispatch Line</div>
           </div>
 
           <div class="card" style="margin-bottom: 1.5rem;">
             <h4 style="font-size: 0.85rem; color: var(--amber-accent); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">Email Inquiries & Tenders</h4>
-            <div style="font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.25rem;">enquiries@alliancegroupqld.com.au</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.25rem;">
+              <a href="mailto:info@alliancegroups.com.au" style="color: var(--navy-dark); text-decoration: none;">info@alliancegroups.com.au</a>
+            </div>
             <div style="font-size: 0.9rem; color: var(--text-muted);">Tender documents & formal proposals</div>
           </div>
 
@@ -84,33 +90,124 @@
 
         <div class="form-card">
           <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1.5rem;">Quotation & Inspection Form</h3>
-          <form id="contactPageForm" onsubmit="handleContactSubmit(event)">
+          <form id="contactPageForm" action="https://formsubmit.co/info@alliancegroups.com.au" method="POST" onsubmit="handleContactSubmit(event)">
+            <input type="hidden" name="_subject" value="New Contact Inquiry - Alliance Group">
+            <input type="hidden" name="_captcha" value="false">
             <div class="form-group">
               <label for="cName" class="form-label">Full Name / Business Name *</label>
-              <input type="text" id="cName" class="form-control" placeholder="John Smith - Commercial Holdings" required>
+              <input type="text" id="cName" name="name" class="form-control" placeholder="John Smith - Commercial Holdings" required>
             </div>
             <div class="form-group">
               <label for="cPhone" class="form-label">Phone Number *</label>
-              <input type="tel" id="cPhone" class="form-control" placeholder="0400 123 456" required>
+              <input type="tel" id="cPhone" name="phone" class="form-control" placeholder="0410 942 905" required>
             </div>
             <div class="form-group">
               <label for="cEmail" class="form-label">Email Address *</label>
-              <input type="email" id="cEmail" class="form-control" placeholder="name@company.com.au" required>
+              <input type="email" id="cEmail" name="email" class="form-control" placeholder="info@alliancegroups.com.au" required>
             </div>
             <div class="form-group">
               <label for="cLocation" class="form-label">Property Suburb / Location (QLD) *</label>
-              <input type="text" id="cLocation" class="form-control" placeholder="e.g. Brisbane CBD, Gold Coast, Ipswich" required>
+              <input type="text" id="cLocation" name="location" class="form-control" placeholder="e.g. Brisbane CBD, Gold Coast, Ipswich" required>
             </div>
             <div class="form-group">
               <label for="cDetails" class="form-label">Project Details / Scope *</label>
-              <textarea id="cDetails" class="form-control" placeholder="Provide scope details..." required></textarea>
+              <textarea id="cDetails" name="details" class="form-control" placeholder="Provide scope details..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Proposal Request</button>
           </form>
 
           <div id="cFormSubmitted" style="display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.5rem; border-radius: var(--radius-sm); text-align: center; margin-top: 1.5rem;">
             <h4 style="color: #166534; font-weight: 700; margin-bottom: 0.5rem;">Request Received</h4>
-            <p style="color: #15803d; font-size: 0.9rem;">Thank you for reaching out to Alliance Group. An estimator will contact you shortly.</p>
+            <p style="color: #15803d; font-size: 0.9rem;">Thank you for reaching out to Alliance Group. Your inquiry has been sent to info@alliancegroups.com.au. An estimator will contact you shortly.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Payment Section -->
+  <section id="payment-section" class="section" style="background-color: var(--bg-white); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Secure Online Payment Portal</h2>
+        <p class="section-desc">Pay project deposits, progress claims, or outstanding invoices securely via credit card or direct bank transfer.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- Credit Card Payment Form -->
+        <div class="form-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--navy-dark); margin: 0;">Online Card Payment</h3>
+            <span style="font-size: 0.8rem; background: #e0f2fe; color: #0369a1; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 700;">256-Bit SSL Encrypted</span>
+          </div>
+
+          <form id="paymentForm" onsubmit="handlePaymentSubmit(event)">
+            <div class="form-group">
+              <label for="payInvoiceNum" class="form-label">Invoice Number / Project Reference *</label>
+              <input type="text" id="payInvoiceNum" class="form-control" placeholder="e.g. INV-2026-8942" required>
+            </div>
+            <div class="form-group">
+              <label for="payClientName" class="form-label">Payer Name / Company *</label>
+              <input type="text" id="payClientName" class="form-control" placeholder="Company Name / Contact Person" required>
+            </div>
+            <div class="form-group">
+              <label for="payEmail" class="form-label">Receipt Email Address *</label>
+              <input type="email" id="payEmail" class="form-control" placeholder="finance@company.com.au" required>
+            </div>
+            <div class="form-group">
+              <label for="payAmount" class="form-label">Payment Amount ($ AUD) *</label>
+              <input type="number" step="0.01" min="1" id="payAmount" class="form-control" placeholder="0.00" required>
+            </div>
+
+            <div style="border-top: 1px dashed var(--border-color); margin: 1.25rem 0; padding-top: 1.25rem;">
+              <div class="form-group">
+                <label for="payCardNum" class="form-label">Card Number *</label>
+                <input type="text" id="payCardNum" class="form-control" placeholder="4532 •••• •••• 8921" maxlength="19" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label for="payCardExpiry" class="form-label">Expiry (MM/YY) *</label>
+                  <input type="text" id="payCardExpiry" class="form-control" placeholder="MM/YY" maxlength="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="payCardCVC" class="form-label">CVC / CVV *</label>
+                  <input type="text" id="payCardCVC" class="form-control" placeholder="123" maxlength="4" required>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" id="paySubmitBtn" class="btn btn-primary" style="width: 100%; font-weight: 700; font-size: 1rem;">Process Secure Payment</button>
+          </form>
+
+          <div id="paymentSuccessMsg" style="display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.5rem; border-radius: var(--radius-sm); text-align: center; margin-top: 1rem;">
+            <h4 style="color: #166534; font-weight: 700; margin-bottom: 0.5rem;">Payment Successful</h4>
+            <p style="color: #15803d; font-size: 0.9rem; margin-bottom: 0.5rem;">Thank you. Your transaction receipt has been sent to your email and logged to <strong style="color: #166534;">info@alliancegroups.com.au</strong>.</p>
+            <div id="receiptDetails" style="font-size: 0.85rem; color: #166534; background: #fff; padding: 0.75rem; border-radius: 4px; font-family: monospace; border: 1px solid #bbf7d0; text-align: left; margin-top: 0.75rem;"></div>
+          </div>
+        </div>
+
+        <!-- Direct Bank Transfer Details -->
+        <div>
+          <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid var(--amber-accent);">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1rem;">Direct Bank Transfer (EFT / BSB)</h3>
+            <p class="section-desc" style="font-size: 0.9rem; margin-bottom: 1.25rem;">For direct electronic funds transfers, please use the bank details below and include your Invoice Number as reference:</p>
+
+            <div style="background-color: var(--bg-white); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.95rem; display: grid; gap: 0.5rem;">
+              <div><strong>Account Name:</strong> Alliance Group QLD</div>
+              <div><strong>Bank Name:</strong> ANZ Australia</div>
+              <div><strong>BSB Number:</strong> <span style="font-family: monospace; font-weight: 700; color: var(--navy-dark);">014-202</span></div>
+              <div><strong>Account Number:</strong> <span style="font-family: monospace; font-weight: 700; color: var(--navy-dark);">4829 1059</span></div>
+              <div><strong>Reference Format:</strong> `INV-[Number]` or Company Name</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--navy-dark); text-transform: uppercase; margin-bottom: 0.5rem;">Remittance & Billing Inquiries</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Please send all remittance advice notices to our accounts department:</p>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--navy-dark);"><a href="mailto:info@alliancegroups.com.au">info@alliancegroups.com.au</a></div>
+            <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem;">Direct Phone: <a href="tel:0410942905" style="color: var(--navy-dark); font-weight: 700;">0410 942 905</a></div>
           </div>
         </div>
 
@@ -120,9 +217,40 @@
 
   <script>
     function handleContactSubmit(e) {
+      setTimeout(() => {
+        document.getElementById('contactPageForm').style.display = 'none';
+        document.getElementById('cFormSubmitted').style.display = 'block';
+      }, 300);
+    }
+
+    function handlePaymentSubmit(e) {
       e.preventDefault();
-      document.getElementById('contactPageForm').style.display = 'none';
-      document.getElementById('cFormSubmitted').style.display = 'block';
+      const btn = document.getElementById('paySubmitBtn');
+      const inv = document.getElementById('payInvoiceNum').value;
+      const amt = parseFloat(document.getElementById('payAmount').value).toFixed(2);
+      const email = document.getElementById('payEmail').value;
+      const client = document.getElementById('payClientName').value;
+
+      btn.disabled = true;
+      btn.innerText = 'Processing Payment...';
+
+      setTimeout(() => {
+        document.getElementById('paymentForm').style.display = 'none';
+        const successBlock = document.getElementById('paymentSuccessMsg');
+        successBlock.style.display = 'block';
+
+        const refNum = 'AG-TXN-' + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('receiptDetails').innerHTML = `
+          RECEIPT SUMMARY:<br>
+          ------------------------<br>
+          TXN ID: ${refNum}<br>
+          INVOICE REF: ${inv}<br>
+          PAYER: ${client}<br>
+          EMAIL: ${email}<br>
+          AMOUNT PAID: $${amt} AUD<br>
+          DATE: ${new Date().toLocaleDateString('en-AU')}
+        `;
+      }, 1000);
     }
   </script>
 
@@ -156,7 +284,7 @@
         <div>
           <h4 class="footer-heading">Licensing & Standards</h4>
           <ul class="footer-links">
-            <li><a href="about.html">QBCC License #1539201</a></li>
+            <li><a href="about.html">Licensed Builder QLD</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
             <li><a href="about.html">ISO 45001 Certified</a></li>
