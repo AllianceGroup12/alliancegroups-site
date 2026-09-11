@@ -9,125 +9,119 @@
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="ticker-bar">
+    <div class="pulse-dot"></div>
+    <span>24/7 Queensland Emergency Dispatch Active • Rapid 2-Hour Site Deployment Available Statewide</span>
+    <div class="pulse-dot"></div>
+  </div>
+
   <header class="site-header">
-    <div class="container header-nav">
+    <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">AG</div>
+        <div class="brand-badge">AG</div>
         <span>Alliance Group</span>
       </a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link">Projects</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html">Projects</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="active">Contact</a></li>
         </ul>
       </nav>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
-        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:1300000247" class="btn btn-danger" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">📞 1300 000 247</a>
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero-section" style="padding: 5rem 0 3rem;">
+  <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-tag">📞 Queensland Wide Service & Estimations</div>
-      <h1 class="hero-title">Request a Free Site Inspection & <span class="gradient-text">Quote</span></h1>
-      <p class="hero-subtitle">Get in touch with our licensed building, roofing, and hazmat estimators. 24/7 Emergency response teams available statewide.</p>
+      <div class="hero-pill">📞 Direct Estimations & Emergency Dispatch</div>
+      <h1 class="hero-headline">Request a Free Inspection & <span class="text-gradient-gold">Quote</span></h1>
+      <p class="hero-sub">Speak directly with our licensed building, roofing, and hazmat estimators across Queensland.</p>
     </div>
   </section>
 
-  <!-- Contact Form & Info Grid -->
-  <section>
+  <section class="section-padding" style="padding-top: 0;">
     <div class="container">
       <div class="grid-2">
 
-        <!-- Inquiry Form -->
+        <!-- Form -->
         <div class="glass-card">
           <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Online Inspection & Quote Request</h3>
           <form id="contactForm" onsubmit="handleFormSubmit(event)">
-            <div class="form-group">
-              <label for="fullName" class="form-label">Full Name / Business Name *</label>
-              <input type="text" id="fullName" class="form-control" placeholder="e.g. John Smith (ABC Property Corp)" required>
+            <div class="form-field" style="margin-bottom: 1.25rem;">
+              <label for="fullName">Full Name / Business Name *</label>
+              <input type="text" id="fullName" placeholder="e.g. John Smith (Commercial Property Corp)" required>
             </div>
-            <div class="form-group">
-              <label for="phoneNumber" class="form-label">Phone Number *</label>
-              <input type="tel" id="phoneNumber" class="form-control" placeholder="e.g. 0400 123 456" required>
+            <div class="form-field" style="margin-bottom: 1.25rem;">
+              <label for="phoneNumber">Phone Number *</label>
+              <input type="tel" id="phoneNumber" placeholder="e.g. 0400 123 456" required>
             </div>
-            <div class="form-group">
-              <label for="emailAddress" class="form-label">Email Address *</label>
-              <input type="email" id="emailAddress" class="form-control" placeholder="e.g. john@domain.com.au" required>
+            <div class="form-field" style="margin-bottom: 1.25rem;">
+              <label for="emailAddress">Email Address *</label>
+              <input type="email" id="emailAddress" placeholder="e.g. john@domain.com.au" required>
             </div>
-            <div class="form-group">
-              <label for="serviceType" class="form-label">Required Service Division</label>
-              <select id="serviceType" class="form-control">
+            <div class="form-field" style="margin-bottom: 1.25rem;">
+              <label for="serviceType">Required Service Division</label>
+              <select id="serviceType">
                 <option value="asbestos">Class A or B Asbestos Removal</option>
-                <option value="roofing">Commercial / Residential Roofing & Re-roofing</option>
+                <option value="roofing">Commercial / Industrial Roofing & Re-roofing</option>
                 <option value="building">Commercial & Insurance Building Repairs</option>
                 <option value="emergency">24/7 Emergency Make-Safe / Storm Damage</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="location" class="form-label">Property Location (QLD Suburb / Postcode) *</label>
-              <input type="text" id="location" class="form-control" placeholder="e.g. Brisbane CBD / Gold Coast / Sunshine Coast" required>
+            <div class="form-field" style="margin-bottom: 1.25rem;">
+              <label for="location">Property Location (QLD Suburb / Postcode) *</label>
+              <input type="text" id="location" placeholder="e.g. Brisbane CBD / Gold Coast / Sunshine Coast" required>
             </div>
-            <div class="form-group">
-              <label for="messageContent" class="form-label">Project Scope & Details *</label>
-              <textarea id="messageContent" class="form-control" placeholder="Describe your roof condition, building requirements, or asbestos location..." required></textarea>
+            <div class="form-field" style="margin-bottom: 1.5rem;">
+              <label for="messageContent">Project Scope & Details *</label>
+              <textarea id="messageContent" placeholder="Describe your roof condition, building requirements, or asbestos location..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Quote Request</button>
+            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 1rem;">Submit Quote Request</button>
           </form>
 
-          <div id="formSuccess" style="display: none; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 1.5rem; text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
-            <h4 style="color: #34d399; margin-bottom: 0.5rem;">Request Submitted Successfully!</h4>
-            <p style="font-size: 0.9rem;">Thank you for reaching out to Alliance Group. An estimator will review your details and contact you shortly.</p>
+          <div id="formSuccess" style="display: none; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); padding: 2rem; border-radius: var(--radius-sm); margin-top: 1.5rem; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
+            <h3 style="color: #34d399; margin-bottom: 0.5rem;">Request Submitted!</h3>
+            <p style="color: var(--text-main);">An Alliance Group senior estimator will contact you within 60 minutes.</p>
           </div>
         </div>
 
-        <!-- Contact Details & Direct Hotline -->
+        <!-- Details -->
         <div>
           <div class="glass-card" style="margin-bottom: 2rem;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem;">Queensland Offices & Emergency Hotline</h3>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Hotline & Queensland Operations</h3>
             
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
-              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(239, 68, 68, 0.2); display: grid; place-items: center;">🚨</div>
+            <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+              <div style="font-size: 1.8rem; width: 55px; height: 55px; border-radius: var(--radius-sm); background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); display: grid; place-items: center;">🚨</div>
               <div>
-                <div style="font-size: 0.8rem; color: #fca5a5; font-weight: 600;">24/7 Emergency Dispatch</div>
-                <div style="font-weight: 800; font-size: 1.25rem; color: var(--text-primary);">1300 000 AGQ (1300 000 247)</div>
+                <div style="font-size: 0.8rem; color: #fca5a5; font-weight: 700; text-transform: uppercase;">24/7 Emergency Hotline</div>
+                <a href="tel:1300000247" style="font-family: var(--font-heading); font-weight: 900; font-size: 1.4rem; color: var(--text-main); text-decoration: none;">1300 000 AGQ (1300 000 247)</a>
               </div>
             </div>
 
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
-              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📧</div>
+            <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+              <div style="font-size: 1.8rem; width: 55px; height: 55px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); display: grid; place-items: center;">📧</div>
               <div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary);">General Enquiries & Tenders</div>
-                <div style="font-weight: 600; color: var(--text-primary);">admin@alliancegroupqld.com.au</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">General & Tenders Email</div>
+                <div style="font-weight: 600; font-size: 1.05rem; color: var(--text-main);">admin@alliancegroupqld.com.au</div>
               </div>
             </div>
 
-            <div style="display: flex; gap: 1rem; align-items: center;">
-              <div style="font-size: 1.5rem; width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--bg-glass); display: grid; place-items: center;">📍</div>
+            <div style="display: flex; gap: 1.25rem; align-items: center;">
+              <div style="font-size: 1.8rem; width: 55px; height: 55px; border-radius: var(--radius-sm); background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); display: grid; place-items: center;">📍</div>
               <div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary);">State Headquarters</div>
-                <div style="font-weight: 600; color: var(--text-primary);">Brisbane • Gold Coast • Sunshine Coast QLD</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Statewide Coverage</div>
+                <div style="font-weight: 600; font-size: 1.05rem; color: var(--text-main);">Brisbane • Gold Coast • Sunshine Coast • Regional QLD</div>
               </div>
-            </div>
-          </div>
-
-          <div class="glass-card">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Licensing & Compliance FAQs</h3>
-            <div style="margin-bottom: 1rem;">
-              <h4 style="font-size: 0.95rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Are you licensed for both Class A and Class B asbestos removal?</h4>
-              <p style="font-size: 0.85rem;">Yes. Alliance Group holds Class A (friable asbestos) and Class B (bonded asbestos) licenses issued by WorkSafe Queensland, allowing us to safely manage any asbestos contamination.</p>
-            </div>
-            <div>
-              <h4 style="font-size: 0.95rem; color: var(--accent-primary); margin-bottom: 0.3rem;">Do you assist with insurance claims?</h4>
-              <p style="font-size: 0.85rem;">Yes, we regularly work directly with major Australian insurance assessors to provide rapid storm damage reports, make-safe tarping, and full scope reconstruction.</p>
             </div>
           </div>
         </div>
@@ -136,51 +130,52 @@
     </div>
   </section>
 
-  <!-- Interactive Form Script -->
   <script>
-    function handleFormSubmit(event) {
-      event.preventDefault();
+    function handleFormSubmit(e) {
+      e.preventDefault();
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     }
   </script>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">AG</div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-badge">AG</div>
             <span>Alliance Group</span>
-          </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
+          </a>
+          <p style="max-width: 320px; font-size: 0.9rem; color: var(--text-muted);">Queensland's premier licensed specialist in commercial building, industrial metal roofing, and Class A & B hazardous material remediation.</p>
         </div>
-        <div class="footer-col">
-          <h4>Divisions</h4>
+        <div>
+          <h4 class="footer-title">Divisions</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Building Construction</a></li>
-            <li><a href="services.html">Metal Roofing Solutions</a></li>
-            <li><a href="services.html">Class A & B Asbestos</a></li>
-            <li><a href="services.html">Hazmat Decontamination</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Colorbond® Metal Roofing</a></li>
+            <li><a href="services.html">Class A Friable Asbestos</a></li>
+            <li><a href="services.html">Class B Bonded Asbestos</a></li>
+            <li><a href="services.html">Hazmat & Soil Remediation</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Coverage Areas</h4>
+        <div>
+          <h4 class="footer-title">Coverage Regions</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Greater Brisbane & Moreton</a></li>
             <li><a href="contact.html">Gold Coast & Hinterland</a></li>
-            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Sunshine Coast & Noosa</a></li>
+            <li><a href="contact.html">Toowoomba & Darling Downs</a></li>
             <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Compliance & Licensing</h4>
+        <div>
+          <h4 class="footer-title">Licensing & Compliance</h4>
           <ul class="footer-links">
             <li><a href="about.html">QBCC License #1539201</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
-            <li><a href="about.html">ISO 45001 Certified</a></li>
+            <li><a href="about.html">ISO 45001 Safety Standard</a></li>
+            <li><a href="about.html">EPA Regulated Transport</a></li>
           </ul>
         </div>
       </div>

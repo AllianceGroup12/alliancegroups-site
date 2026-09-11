@@ -9,112 +9,120 @@
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="ticker-bar">
+    <div class="pulse-dot"></div>
+    <span>24/7 Queensland Emergency Dispatch Active • Rapid 2-Hour Site Deployment Available Statewide</span>
+    <div class="pulse-dot"></div>
+  </div>
+
   <header class="site-header">
-    <div class="container header-nav">
+    <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">AG</div>
+        <div class="brand-badge">AG</div>
         <span>Alliance Group</span>
       </a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link">Projects</a></li>
-          <li><a href="about.html" class="nav-link active">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html">Projects</a></li>
+          <li class="nav-item"><a href="about.html" class="active">About</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
-        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:1300000247" class="btn btn-danger" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">📞 1300 000 247</a>
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" style="padding: 5rem 0 3rem;">
+  <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-tag">🏗️ Unmatched Quality & Safety</div>
-      <h1 class="hero-title">Protecting & Building <span class="gradient-text">Queensland Infrastructure</span></h1>
-      <p class="hero-subtitle">With over 15 years of industry experience across Brisbane, the Gold Coast, and regional QLD, Alliance Group provides end-to-end building, high-durability roofing, and certified hazmat removal.</p>
+      <div class="hero-pill">🏗️ Unmatched Safety & Engineering Excellence</div>
+      <h1 class="hero-headline">Building & Protecting <span class="text-gradient-gold">Queensland Infrastructure</span></h1>
+      <p class="hero-sub">With over 15 years of operational excellence, Alliance Group provides end-to-end building construction, heavy-duty roofing, and certified asbestos decontamination.</p>
     </div>
   </section>
 
-  <!-- Our Mission & Standards -->
-  <section>
+  <section class="section-padding" style="padding-top: 0;">
     <div class="container">
-      <div class="grid-2" style="margin-bottom: 4rem;">
+      <div class="grid-2" style="margin-bottom: 3.5rem;">
         <div class="glass-card">
           <h2 style="font-size: 2rem; margin-bottom: 1rem;">Our Mission</h2>
-          <p>To deliver uncompromising quality across construction, roofing, and hazardous material removal—ensuring complete safety, regulatory compliance, and long-term durability for every Queensland property owner.</p>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">To eliminate structural hazards and deliver uncompromising build quality across Queensland. We integrate construction craftsmanship with certified environmental hazmat containment.</p>
         </div>
         <div class="glass-card">
-          <h2 style="font-size: 2rem; margin-bottom: 1rem;">WorkSafe & Environmental Commitment</h2>
-          <p>We operate with Class A friable and Class B non-friable asbestos licenses. Every hazmat project undergoes rigorous negative-pressure air isolation, independent occupational hygienist testing, and EPA-tracked waste disposal.</p>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">WorkSafe & Environmental Mandate</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">We operate under Class A friable and Class B non-friable asbestos licenses. Every project utilizes negative-pressure HEPA isolation, independent hygienist air monitoring, and EPA-tracked waste disposal.</p>
         </div>
       </div>
 
       <div style="text-align: center; margin-bottom: 3rem;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Our Licensing & Accreditation</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 0.75rem;">Licensing & Accreditation</h2>
       </div>
 
       <div class="grid-3">
         <div class="glass-card text-center">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📜</div>
-          <h3>QBCC Licensed Builder</h3>
-          <p>Full Queensland Building and Construction Commission open builder license for commercial and residential works.</p>
+          <div style="font-size: 3rem; margin-bottom: 0.75rem;">📜</div>
+          <h3>QBCC Open License</h3>
+          <p style="color: var(--text-muted);">#1539201 - Commercial, Industrial & Residential Construction Open License.</p>
         </div>
         <div class="glass-card text-center">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">☣️</div>
+          <div style="font-size: 3rem; margin-bottom: 0.75rem;">☣️</div>
           <h3>Class A & B Asbestos License</h3>
-          <p>Certified by WorkSafe Queensland to remove friable asbestos insulations, pipe lags, and bonded fibro sheeting.</p>
+          <p style="color: var(--text-muted);">#230491 - Certified by WorkSafe QLD for friable insulation & bonded fibro.</p>
         </div>
         <div class="glass-card text-center">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌿</div>
-          <h3>EPA Environment Approved</h3>
-          <p>Licensed hazardous waste transport vehicles and tracking certificates issued for every disposal run.</p>
+          <div style="font-size: 3rem; margin-bottom: 0.75rem;">🌿</div>
+          <h3>EPA Regulated Transport</h3>
+          <p style="color: var(--text-muted);">Licensed hazardous waste transport vehicles & EPA tipping certificates.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">AG</div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-badge">AG</div>
             <span>Alliance Group</span>
-          </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
+          </a>
+          <p style="max-width: 320px; font-size: 0.9rem; color: var(--text-muted);">Queensland's premier licensed specialist in commercial building, industrial metal roofing, and Class A & B hazardous material remediation.</p>
         </div>
-        <div class="footer-col">
-          <h4>Divisions</h4>
+        <div>
+          <h4 class="footer-title">Divisions</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Building Construction</a></li>
-            <li><a href="services.html">Metal Roofing Solutions</a></li>
-            <li><a href="services.html">Class A & B Asbestos</a></li>
-            <li><a href="services.html">Hazmat Decontamination</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Colorbond® Metal Roofing</a></li>
+            <li><a href="services.html">Class A Friable Asbestos</a></li>
+            <li><a href="services.html">Class B Bonded Asbestos</a></li>
+            <li><a href="services.html">Hazmat & Soil Remediation</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Coverage Areas</h4>
+        <div>
+          <h4 class="footer-title">Coverage Regions</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Greater Brisbane & Moreton</a></li>
             <li><a href="contact.html">Gold Coast & Hinterland</a></li>
-            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Sunshine Coast & Noosa</a></li>
+            <li><a href="contact.html">Toowoomba & Darling Downs</a></li>
             <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Compliance & Licensing</h4>
+        <div>
+          <h4 class="footer-title">Licensing & Compliance</h4>
           <ul class="footer-links">
             <li><a href="about.html">QBCC License #1539201</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
-            <li><a href="about.html">ISO 45001 Certified</a></li>
+            <li><a href="about.html">ISO 45001 Safety Standard</a></li>
+            <li><a href="about.html">EPA Regulated Transport</a></li>
           </ul>
         </div>
       </div>

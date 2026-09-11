@@ -3,114 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Services | Alliance Group Building, Metal Roofing, Class A & B Asbestos Removal, and Emergency Response Queensland.">
-  <title>Services | Alliance Group Building, Roofing & Hazmat QLD</title>
+  <meta name="description" content="Services | Alliance Group Building, Roofing & Hazmat Queensland. Licensed Class A & B asbestos, industrial metal roofing, and commercial construction.">
+  <title>Contracting Services | Alliance Group QLD</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Ambient Glow Canvas -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Live Emergency Ticker Bar -->
+  <div class="ticker-bar">
+    <div class="pulse-dot"></div>
+    <span>24/7 Queensland Emergency Dispatch Active • Rapid 2-Hour Site Deployment Available Statewide</span>
+    <div class="pulse-dot"></div>
+  </div>
+
   <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container header-nav">
+    <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">AG</div>
+        <div class="brand-badge">AG</div>
         <span>Alliance Group</span>
       </a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link active">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link">Projects</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="services.html" class="active">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html">Projects</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
-        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:1300000247" class="btn btn-danger" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">📞 1300 000 247</a>
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section" style="padding: 5rem 0 3rem;">
+  <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-tag">⚙️ Complete Contracting Capabilities</div>
-      <h1 class="hero-title">Building, Roofing & <span class="gradient-text">Hazmat Solutions</span></h1>
-      <p class="hero-subtitle">Comprehensive construction services backed by WorkSafe QLD licenses, heavy machinery, and specialized environmental hazmat teams.</p>
+      <div class="hero-pill">⚙️ Specialized Contracting Divisions</div>
+      <h1 class="hero-headline">Building, Roofing & <span class="text-gradient-gold">Hazmat Capabilities</span></h1>
+      <p class="hero-sub">Backed by heavy machinery, negative-pressure environmental enclosures, and WorkSafe QLD licenses.</p>
     </div>
   </section>
 
-  <!-- Detailed Services Grid -->
-  <section>
+  <!-- Services Grid -->
+  <section class="section-padding" style="padding-top: 0;">
     <div class="container">
       <div class="grid-2">
 
-        <!-- Service 1: Building -->
+        <!-- Card 1 -->
         <div class="glass-card">
-          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-            <div style="font-size: 2.5rem; width: 60px; height: 60px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.15); display: grid; place-items: center;">🏗️</div>
+          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 2.75rem; width: 65px; height: 65px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); display: grid; place-items: center;">🏗️</div>
             <div>
-              <h3>Building & Construction Services</h3>
-              <p style="font-size: 0.9rem; color: #fde047;">Commercial • Residential • Insurance</p>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.25rem;">Commercial & Structural Building</h3>
+              <p style="color: var(--gold-primary); font-weight: 600; font-size: 0.9rem;">QBCC License #1539201</p>
             </div>
           </div>
-          <p style="margin-bottom: 1.25rem;">Full-service construction management, insurance repairs, structural additions, and commercial fitouts throughout Queensland.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
-            <li>Commercial structural builds & tenancy fitouts</li>
-            <li>Insurance storm, fire & flood restoration</li>
-            <li>Structural concrete & steel framework repair</li>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">End-to-end commercial construction management, insurance rectifications, structural additions, and industrial tenancy fitouts across Queensland.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;">✓ Commercial structural steel & concrete framing</li>
+            <li style="margin-bottom: 0.75rem;">✓ Insurance storm, fire & flood restoration</li>
+            <li>✓ Complete project management & council approval handling</li>
           </ul>
         </div>
 
-        <!-- Service 2: Roofing -->
+        <!-- Card 2 -->
         <div class="glass-card">
-          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-            <div style="font-size: 2.5rem; width: 60px; height: 60px; border-radius: var(--radius-sm); background: rgba(59, 130, 246, 0.15); display: grid; place-items: center;">🏠</div>
+          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 2.75rem; width: 65px; height: 65px; border-radius: var(--radius-sm); background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); display: grid; place-items: center;">🏠</div>
             <div>
-              <h3>Industrial & Residential Roofing</h3>
-              <p style="font-size: 0.9rem; color: #93c5fd;">Colorbond® • Metal Re-roofs • Gutters</p>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.25rem;">Industrial & Residential Roofing</h3>
+              <p style="color: #38bdf8; font-weight: 600; font-size: 0.9rem;">Colorbond® Certified Installers</p>
             </div>
           </div>
-          <p style="margin-bottom: 1.25rem;">Specialized roof replacements, hail damage repair, insulation upgrades, and custom metal sheet fabrication designed for Australian climate extremes.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
-            <li>Colorbond® & Lysaght commercial roof installations</li>
-            <li>Old tile & corrugated iron re-roofing</li>
-            <li>Industrial guttering, box gutters & fascia replacement</li>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">Specialized metal roof replacements, hail damage repair, insulation upgrades, and custom metal sheet fabrication for Australian climate extremes.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;">✓ Colorbond® & Lysaght commercial roof replacements</li>
+            <li style="margin-bottom: 0.75rem;">✓ Old tile & corrugated iron re-roofing</li>
+            <li>✓ Industrial box guttering, fascia & insulation systems</li>
           </ul>
         </div>
 
-        <!-- Service 3: Class A & B Asbestos -->
+        <!-- Card 3 -->
         <div class="glass-card">
-          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-            <div style="font-size: 2.5rem; width: 60px; height: 60px; border-radius: var(--radius-sm); background: rgba(239, 68, 68, 0.15); display: grid; place-items: center;">☣️</div>
+          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 2.75rem; width: 65px; height: 65px; border-radius: var(--radius-sm); background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); display: grid; place-items: center;">☣️</div>
             <div>
-              <h3>Licensed Class A & B Asbestos Removal</h3>
-              <p style="font-size: 0.9rem; color: #fca5a5;">WorkSafe QLD Approved • Friable & Bonded</p>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.25rem;">Class A & B Asbestos Removal</h3>
+              <p style="color: #f43f5e; font-weight: 600; font-size: 0.9rem;">WorkSafe QLD Approved License #230491</p>
             </div>
           </div>
-          <p style="margin-bottom: 1.25rem;">Safely removing asbestos roof sheets, wall cladding, insulation lagging, acoustic ceilings, and vinyl tiles under negative pressure enclosures.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
-            <li>Class A friable asbestos removal with HEPA air filtration</li>
-            <li>Class B bonded fibro sheet removal & encapsulation</li>
-            <li>Independent occupational hygienist clearance certification</li>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">Safely removing asbestos roof sheets, wall cladding, insulation lagging, acoustic ceilings, and vinyl tiles under negative pressure enclosures.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;">✓ Class A friable asbestos removal with HEPA filtration</li>
+            <li style="margin-bottom: 0.75rem;">✓ Class B bonded fibro sheet removal & encapsulation</li>
+            <li>✓ Independent occupational hygienist clearance certificates</li>
           </ul>
         </div>
 
-        <!-- Service 4: Hazmat & Decontamination -->
+        <!-- Card 4 -->
         <div class="glass-card">
-          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-            <div style="font-size: 2.5rem; width: 60px; height: 60px; border-radius: var(--radius-sm); background: rgba(168, 85, 247, 0.15); display: grid; place-items: center;">🧪</div>
+          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 2.75rem; width: 65px; height: 65px; border-radius: var(--radius-sm); background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); display: grid; place-items: center;">🧪</div>
             <div>
-              <h3>Hazardous Materials & Soil Remediation</h3>
-              <p style="font-size: 0.9rem; color: #c084fc;">Lead Paint • Mould • Contaminated Soil</p>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.25rem;">Hazmat & Soil Remediation</h3>
+              <p style="color: #c084fc; font-weight: 600; font-size: 0.9rem;">EPA Licensed Waste Transport</p>
             </div>
           </div>
-          <p style="margin-bottom: 1.25rem;">Comprehensive environmental remediation including lead paint stabilization, commercial mould eradication, and contaminated soil excavation.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
-            <li>Lead dust & paint abatement in heritage properties</li>
-            <li>Mould & biological contaminant decontamination</li>
-            <li>EPA-certified waste transport & regulated tipping</li>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">Comprehensive environmental remediation including lead paint stabilization, commercial mould eradication, and contaminated soil excavation.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;">✓ Lead dust & paint abatement in heritage properties</li>
+            <li style="margin-bottom: 0.75rem;">✓ Mould & biological contaminant decontamination</li>
+            <li>✓ Regulated EPA hazardous waste tracking & disposal</li>
           </ul>
         </div>
 
@@ -123,37 +134,40 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">AG</div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-badge">AG</div>
             <span>Alliance Group</span>
-          </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
+          </a>
+          <p style="max-width: 320px; font-size: 0.9rem; color: var(--text-muted);">Queensland's premier licensed specialist in commercial building, industrial metal roofing, and Class A & B hazardous material remediation.</p>
         </div>
-        <div class="footer-col">
-          <h4>Divisions</h4>
+        <div>
+          <h4 class="footer-title">Divisions</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Building Construction</a></li>
-            <li><a href="services.html">Metal Roofing Solutions</a></li>
-            <li><a href="services.html">Class A & B Asbestos</a></li>
-            <li><a href="services.html">Hazmat Decontamination</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Colorbond® Metal Roofing</a></li>
+            <li><a href="services.html">Class A Friable Asbestos</a></li>
+            <li><a href="services.html">Class B Bonded Asbestos</a></li>
+            <li><a href="services.html">Hazmat & Soil Remediation</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Coverage Areas</h4>
+        <div>
+          <h4 class="footer-title">Coverage Regions</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Greater Brisbane & Moreton</a></li>
             <li><a href="contact.html">Gold Coast & Hinterland</a></li>
-            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Sunshine Coast & Noosa</a></li>
+            <li><a href="contact.html">Toowoomba & Darling Downs</a></li>
             <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Compliance & Licensing</h4>
+        <div>
+          <h4 class="footer-title">Licensing & Compliance</h4>
           <ul class="footer-links">
             <li><a href="about.html">QBCC License #1539201</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
-            <li><a href="about.html">ISO 45001 Certified</a></li>
+            <li><a href="about.html">ISO 45001 Safety Standard</a></li>
+            <li><a href="about.html">EPA Regulated Transport</a></li>
           </ul>
         </div>
       </div>

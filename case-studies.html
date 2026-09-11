@@ -9,119 +9,85 @@
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="ticker-bar">
+    <div class="pulse-dot"></div>
+    <span>24/7 Queensland Emergency Dispatch Active • Rapid 2-Hour Site Deployment Available Statewide</span>
+    <div class="pulse-dot"></div>
+  </div>
+
   <header class="site-header">
-    <div class="container header-nav">
+    <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">AG</div>
+        <div class="brand-badge">AG</div>
         <span>Alliance Group</span>
       </a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link active">Projects</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html" class="active">Projects</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
-        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:1300000247" class="btn btn-danger" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">📞 1300 000 247</a>
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" style="padding: 5rem 0 3rem;">
+  <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-tag">🏆 Proven Queensland Projects</div>
-      <h1 class="hero-title">Featured Building, Roofing & <span class="gradient-text">Hazmat Case Studies</span></h1>
-      <p class="hero-subtitle">Real-world outcomes delivered for commercial, industrial, and government facilities across Queensland.</p>
+      <div class="hero-pill">🏆 Queensland Project Portfolio</div>
+      <h1 class="hero-headline">Building, Roofing & <span class="text-gradient-gold">Hazmat Case Studies</span></h1>
+      <p class="hero-sub">Proven project delivery for commercial asset managers, insurance providers, and government facilities across QLD.</p>
     </div>
   </section>
 
-  <!-- Projects Grid -->
-  <section>
+  <section class="section-padding" style="padding-top: 0;">
     <div class="container">
       <div class="grid-2">
 
         <!-- Project 1 -->
         <div class="glass-card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); color: #fde047;">COMMERCIAL RE-ROOF</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.35rem 0.9rem; border-radius: var(--radius-pill); color: var(--gold-primary);">COMMERCIAL RE-ROOF</span>
             <span style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Brisbane CBD</span>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">12,000m² Asbestos Roof Removal & Colorbond® Replacement</h3>
-          <p style="margin-bottom: 1.5rem;">Safely removed super-six asbestos roofing under live tenant operations without business disruption. Installed high-efficiency insulation and custom Colorbond® steel sheeting.</p>
-          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">12,000m² Asbestos Removal & Colorbond® Replacement</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Safely removed super-six asbestos roofing under live tenant operations without business disruption. Installed high-efficiency foil insulation and custom Colorbond® steel sheeting.</p>
+          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1.25rem;">
             <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">12,000m²</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Asbestos Safe Removal</div>
+              <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: var(--text-main);">12,000m²</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Asbestos Decontaminated</div>
             </div>
             <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">0 Hours</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Tenant Downtime</div>
+              <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: var(--text-main);">Zero Downtime</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Live Tenant Business</div>
             </div>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="glass-card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); color: #fca5a5;">HAZMAT REMEDIATION</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4); padding: 0.35rem 0.9rem; border-radius: var(--radius-pill); color: #f43f5e;">HAZMAT REMEDIATION</span>
             <span style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Gold Coast</span>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Class A Friable Asbestos Decontamination of Industrial Plant</h3>
-          <p style="margin-bottom: 1.5rem;">Full containment enclosure with double-stage negative air pressure units for removing compromised pipe lagging and acoustic boiler insulation.</p>
-          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Class A Friable Asbestos Decontamination of Industrial Plant</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Full containment enclosure with double-stage negative air pressure units for removing compromised pipe lagging and acoustic boiler insulation.</p>
+          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1.25rem;">
             <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">100%</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Independent Clearance</div>
+              <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: var(--text-main);">100% Passed</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Independent Air Clearance</div>
             </div>
             <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">Class A</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Friable Certification</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="glass-card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); color: #93c5fd;">STORM RECOVERY</span>
-            <span style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Sunshine Coast</span>
-          </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Emergency Hail Damage Re-Roofing & Structural Repair</h3>
-          <p style="margin-bottom: 1.5rem;">Deployed 24/7 emergency response crews following a catastrophic hail storm, providing instant make-safe tarping and completing 45 residential roof restorations in 14 days.</p>
-          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
-            <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">< 2 Hours</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Emergency On-site Time</div>
-            </div>
-            <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">45 Roofs</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Restored in 2 Weeks</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="glass-card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); color: #c084fc;">GOVERNMENT BUILD</span>
-            <span style="font-size: 0.85rem; color: #34d399; font-weight: 600;">Toowoomba Regional</span>
-          </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Community Facility Refurbishment & Lead Paint Remediation</h3>
-          <p style="margin-bottom: 1.5rem;">Comprehensive structural refurbishment of heritage-listed community building including lead paint stabilization, timber frame repairs, and new metal cladding.</p>
-          <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
-            <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">On-Time</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Council Project Delivery</div>
-            </div>
-            <div>
-              <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">ISO 45001</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Safety Compliance</div>
+              <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: var(--text-main);">Class A</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Friable Certification</div>
             </div>
           </div>
         </div>
@@ -130,55 +96,44 @@
     </div>
   </section>
 
-  <!-- Client Testimonial -->
-  <section style="background: var(--bg-secondary);">
-    <div class="container text-center">
-      <div class="glass-card" style="max-width: 800px; margin: 0 auto; padding: 3rem 2rem;">
-        <div style="font-size: 1.35rem; font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">
-          "Alliance Group managed our commercial asbestos roof replacement with absolute professionalism. Their hazmat safety controls gave us total confidence, and the new Colorbond roof looks outstanding."
-        </div>
-        <div style="font-weight: 700; color: var(--accent-primary);">David Miller</div>
-        <div style="font-size: 0.85rem; color: var(--text-secondary);">Asset Manager, QLD Commercial Logistics</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">AG</div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-badge">AG</div>
             <span>Alliance Group</span>
-          </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
+          </a>
+          <p style="max-width: 320px; font-size: 0.9rem; color: var(--text-muted);">Queensland's premier licensed specialist in commercial building, industrial metal roofing, and Class A & B hazardous material remediation.</p>
         </div>
-        <div class="footer-col">
-          <h4>Divisions</h4>
+        <div>
+          <h4 class="footer-title">Divisions</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Building Construction</a></li>
-            <li><a href="services.html">Metal Roofing Solutions</a></li>
-            <li><a href="services.html">Class A & B Asbestos</a></li>
-            <li><a href="services.html">Hazmat Decontamination</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Colorbond® Metal Roofing</a></li>
+            <li><a href="services.html">Class A Friable Asbestos</a></li>
+            <li><a href="services.html">Class B Bonded Asbestos</a></li>
+            <li><a href="services.html">Hazmat & Soil Remediation</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Coverage Areas</h4>
+        <div>
+          <h4 class="footer-title">Coverage Regions</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Greater Brisbane & Moreton</a></li>
             <li><a href="contact.html">Gold Coast & Hinterland</a></li>
-            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Sunshine Coast & Noosa</a></li>
+            <li><a href="contact.html">Toowoomba & Darling Downs</a></li>
             <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Compliance & Licensing</h4>
+        <div>
+          <h4 class="footer-title">Licensing & Compliance</h4>
           <ul class="footer-links">
             <li><a href="about.html">QBCC License #1539201</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
-            <li><a href="about.html">ISO 45001 Certified</a></li>
+            <li><a href="about.html">ISO 45001 Safety Standard</a></li>
+            <li><a href="about.html">EPA Regulated Transport</a></li>
           </ul>
         </div>
       </div>

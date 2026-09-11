@@ -3,170 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Alliance Group - Queensland's premier licensed contractor for Commercial & Residential Building, Metal Roofing, and Class A & B Asbestos & Hazmat Remediation.">
+  <meta name="description" content="Alliance Group - Queensland's premier licensed contractor for Commercial & Residential Building, Industrial Metal Roofing, and Class A & B Asbestos Remediation.">
   <title>Alliance Group | Building, Roofing & Hazmat Queensland</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Ambient Glow Canvas -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Live Emergency Ticker Bar -->
+  <div class="ticker-bar">
+    <div class="pulse-dot"></div>
+    <span>24/7 Queensland Emergency Dispatch Active • Rapid 2-Hour Site Deployment Available Statewide</span>
+    <div class="pulse-dot"></div>
+  </div>
+
   <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container header-nav">
+    <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">AG</div>
+        <div class="brand-badge">AG</div>
         <span>Alliance Group</span>
       </a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="case-studies.html" class="nav-link">Projects</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html">Projects</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <span class="emergency-badge">🚨 24/7 QLD Emergency</span>
-        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:1300000247" class="btn btn-danger" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">📞 1300 000 247</a>
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-tag">🛡️ QBCC Licensed • Class A & B Asbestos Certified • QLD Wide</div>
-      <h1 class="hero-title">Queensland's Premier Partner in <span class="gradient-text">Building, Roofing & Hazmat Remediation</span></h1>
-      <p class="hero-subtitle">Delivering high-precision commercial building, industrial metal roofing, and certified asbestos & hazardous material removal across Brisbane, the Gold Coast, and regional Queensland.</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">Get Free Site Audit</a>
-        <a href="services.html" class="btn btn-secondary">Explore Capabilities</a>
+      <div class="hero-pill">🛡️ QBCC Licensed #1539201 • Class A & B Asbestos Certified #230491</div>
+      <h1 class="hero-headline">Queensland's Premier Force in <span class="text-gradient-gold">Building, Roofing & Hazmat</span></h1>
+      <p class="hero-sub">Delivering high-precision commercial construction, industrial metal roofing, and certified asbestos decontamination across Brisbane, Gold Coast, Sunshine Coast, and Regional QLD.</p>
+      <div class="hero-cta-group">
+        <a href="#estimator" class="btn btn-gold" style="font-size: 1.05rem; padding: 1rem 2.2rem;">Instant Cost Estimator</a>
+        <a href="services.html" class="btn btn-glass" style="font-size: 1.05rem; padding: 1rem 2.2rem;">Explore Divisions</a>
       </div>
     </div>
   </section>
 
   <!-- Key Performance Metrics -->
-  <section>
+  <section class="section-padding" style="padding-top: 2rem;">
     <div class="container">
       <div class="grid-3">
-        <div class="glass-card text-center">
-          <div class="metric-number gradient-text">2,500+</div>
-          <h3>Projects Completed</h3>
-          <p>Successful structural builds, complex re-roofs, and hazardous material clearances completed across QLD.</p>
+        <div class="glass-card stat-box">
+          <div class="stat-number text-gradient-gold">2,500+</div>
+          <h3>Completed Projects</h3>
+          <p>Structural builds, complex re-roofs, and environmental hazmat clearances across QLD.</p>
         </div>
-        <div class="glass-card text-center">
-          <div class="metric-number gradient-text">Class A&B</div>
-          <h3>Licensed Hazmat Removal</h3>
-          <p>Fully compliant friable & non-friable asbestos decontamination with independent hygienist sign-off.</p>
+        <div class="glass-card stat-box">
+          <div class="stat-number text-gradient-gold">Class A&B</div>
+          <h3>Licensed Asbestos Specialist</h3>
+          <p>WorkSafe QLD certified for friable insulation, pipe lagging, and bonded fibro sheets.</p>
         </div>
-        <div class="glass-card text-center">
-          <div class="metric-number gradient-text">100%</div>
-          <h3>Safety & Compliance Record</h3>
-          <p>Strict WorkSafe QLD adherence, environmental containment, and ISO 45001 safety standard implementation.</p>
+        <div class="glass-card stat-box">
+          <div class="stat-number text-gradient-gold">100%</div>
+          <h3>Safety & ISO Compliance</h3>
+          <p>Rigorous negative pressure containment, independent hygienist air testing & clearance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Division Services -->
-  <section>
+  <!-- Interactive Live Instant Cost & Risk Estimator -->
+  <section id="estimator" class="section-padding">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 2.75rem; margin-bottom: 0.75rem;">Interactive Project Cost Estimator</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">Select your property parameters for an instant budgetary estimation & priority dispatch quote.</p>
+      </div>
+
+      <div class="estimator-card">
+        <form id="quoteEstimator" onsubmit="calculateEstimate(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="projectType">Division / Project Type</label>
+              <select id="projectType" required onchange="recalculate()">
+                <option value="roofing">Industrial & Commercial Roofing / Re-Roofing</option>
+                <option value="asbestos_bonded">Class B Bonded Asbestos Removal</option>
+                <option value="asbestos_friable">Class A Friable Asbestos Decontamination</option>
+                <option value="building">Commercial & Residential Building Works</option>
+                <option value="emergency">Emergency Storm / Hail Damage Make-Safe</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="areaSize">Approximate Roof / Floor Area (m²)</label>
+              <input type="number" id="areaSize" value="350" min="50" max="50000" required oninput="recalculate()">
+            </div>
+            <div class="form-field">
+              <label for="regionLocation">Queensland Region</label>
+              <select id="regionLocation" required>
+                <option value="brisbane">Greater Brisbane & Moreton Bay</option>
+                <option value="goldcoast">Gold Coast & Hinterland</option>
+                <option value="sunshine">Sunshine Coast & Noosa</option>
+                <option value="regional">Regional Queensland (Toowoomba, Ipswich, North QLD)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="background: rgba(5, 7, 13, 0.9); border: 1px solid var(--border-glow); border-radius: var(--radius-sm); padding: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Estimated Budgetary Range</div>
+              <div id="estimatedCost" style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 900; color: var(--gold-primary);">$4,200 - $6,800 AUD</div>
+              <div style="font-size: 0.8rem; color: #34d399;">✓ Includes WorkSafe QLD EPA waste compliance & independent clearance testing</div>
+            </div>
+            <button type="submit" class="btn btn-gold" style="padding: 1rem 2rem;">Lock In Free Site Inspection</button>
+          </div>
+        </form>
+
+        <div id="estimatorSuccess" style="display: none; background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); padding: 2rem; border-radius: var(--radius-sm); margin-top: 1.5rem; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
+          <h3 style="color: #34d399; margin-bottom: 0.5rem;">Priority Inspection Locked In!</h3>
+          <p style="color: var(--text-main);">An Alliance Group senior estimator will contact you within 60 minutes to confirm on-site measurements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Division Showcase -->
+  <section class="section-padding">
     <div class="container">
       <div style="text-align: center; margin-bottom: 3rem;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Core Divisions</h2>
-        <p>Integrated construction, roofing, and environmental hazmat management solutions.</p>
+        <h2 style="font-size: 2.75rem; margin-bottom: 0.75rem;">Triple Contracting Capabilities</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">Integrated construction, roofing, and certified environmental hazmat management.</p>
       </div>
 
       <div class="grid-3">
         <!-- Division 1 -->
         <div class="glass-card">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏗️</div>
-          <h3>Building & Construction</h3>
-          <p style="margin-bottom: 1.25rem;">Commercial refurbishments, residential insurance rectifications, structural upgrades, and full project management.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-secondary);">
-            <li>Commercial & industrial builds</li>
-            <li>Insurance storm & flood rectifications</li>
-            <li>Structural extensions & fitouts</li>
+          <div style="font-size: 3rem; margin-bottom: 1.25rem;">🏗️</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Building & Construction</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Commercial refurbishments, structural additions, tenancy fitouts, and insurance rectifications built to QBCC standards.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.5rem;">⚡ Commercial & industrial builds</li>
+            <li style="margin-bottom: 0.5rem;">⚡ Insurance storm & flood repair</li>
+            <li>⚡ Structural steel framework upgrades</li>
           </ul>
         </div>
 
         <!-- Division 2 -->
         <div class="glass-card">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏠</div>
-          <h3>Roofing & Cladding</h3>
-          <p style="margin-bottom: 1.25rem;">Industrial & domestic metal roofing, Colorbond® replacements, guttering, fascia, and hail/storm damage restoration.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-secondary);">
-            <li>Commercial metal re-roofing</li>
-            <li>Asbestos roof replacement</li>
-            <li>24/7 Emergency make-safe tarping</li>
+          <div style="font-size: 3rem; margin-bottom: 1.25rem;">🏠</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Roofing & Cladding</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Colorbond® metal roof replacements, hail damage repair, industrial gutters, and high-durability insulation systems.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.5rem;">⚡ Commercial metal re-roofing</li>
+            <li style="margin-bottom: 0.5rem;">⚡ Asbestos roof replacement</li>
+            <li>⚡ 24/7 Emergency make-safe tarping</li>
           </ul>
         </div>
 
         <!-- Division 3 -->
         <div class="glass-card">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">☣️</div>
-          <h3>Hazmat & Asbestos Remediation</h3>
-          <p style="margin-bottom: 1.25rem;">Certified Class A friable and Class B non-friable asbestos removal, lead paint decontamination, and soil remediation.</p>
-          <ul style="list-style-type: '✓ '; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-secondary);">
-            <li>Class A friable asbestos containment</li>
-            <li>Independent air monitoring & clearance</li>
-            <li>EPA-approved licensed waste transport</li>
+          <div style="font-size: 3rem; margin-bottom: 1.25rem;">☣️</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Hazmat & Asbestos Remediation</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">WorkSafe QLD certified Class A friable and Class B bonded asbestos removal, lead paint abatement, and soil decontamination.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.5rem;">⚡ Class A negative-pressure containment</li>
+            <li style="margin-bottom: 0.5rem;">⚡ Independent hygienist clearance</li>
+            <li>⚡ EPA-licensed waste transport</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Emergency Response Banner -->
-  <section>
+  <!-- Emergency Strike Banner -->
+  <section class="section-padding">
     <div class="container">
-      <div class="glass-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%); border-color: rgba(245, 158, 11, 0.3); padding: 3.5rem 2rem; text-align: center;">
-        <div class="emergency-badge" style="margin-bottom: 1rem;">⚡ Rapid Emergency Callout Unit</div>
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Storm Damage or Urgent Hazmat Contamination?</h2>
-        <p style="max-width: 650px; margin: 0 auto 2rem;">Our Queensland emergency strike teams deploy within 2 hours to perform structural make-safes, hazmat containments, and temporary roof coverings.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn-primary" style="font-size: 1.05rem;">Call Emergency Hotline</a>
-          <a href="contact.html" class="btn btn-secondary" style="font-size: 1.05rem;">Request Immediate Inspection</a>
+      <div class="glass-card" style="background: linear-gradient(135deg, rgba(185, 28, 28, 0.25) 0%, rgba(245, 158, 11, 0.25) 100%); border-color: rgba(244, 63, 94, 0.4); text-align: center; padding: 4rem 2rem;">
+        <div class="hero-pill" style="background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.5); color: #fca5a5; margin-bottom: 1rem;">🚨 24/7 Emergency Response Unit</div>
+        <h2 style="font-size: 2.75rem; margin-bottom: 1rem;">Storm Damage or Urgent Asbestos Exposure?</h2>
+        <p style="max-width: 680px; margin: 0 auto 2rem; color: var(--text-main); font-size: 1.1rem;">Our Queensland strike teams deploy within 2 hours to perform structural make-safes, hazmat containments, and emergency tarping.</p>
+        <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:1300000247" class="btn btn-danger" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Call Emergency Hotline: 1300 000 247</a>
+          <a href="contact.html" class="btn btn-glass" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Request Immediate Inspection</a>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Interactive Script for Estimator -->
+  <script>
+    function recalculate() {
+      const type = document.getElementById('projectType').value;
+      const area = parseFloat(document.getElementById('areaSize').value) || 200;
+      let rateMin = 25;
+      let rateMax = 45;
+
+      if (type === 'asbestos_friable') {
+        rateMin = 85;
+        rateMax = 140;
+      } else if (type === 'asbestos_bonded') {
+        rateMin = 40;
+        rateMax = 65;
+      } else if (type === 'roofing') {
+        rateMin = 55;
+        rateMax = 95;
+      } else if (type === 'building') {
+        rateMin = 120;
+        rateMax = 250;
+      } else if (type === 'emergency') {
+        rateMin = 30;
+        rateMax = 60;
+      }
+
+      const totalMin = Math.round(area * rateMin);
+      const totalMax = Math.round(area * rateMax);
+      document.getElementById('estimatedCost').innerText = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()} AUD`;
+    }
+
+    function calculateEstimate(e) {
+      e.preventDefault();
+      document.getElementById('quoteEstimator').style.display = 'none';
+      document.getElementById('estimatorSuccess').style.display = 'block';
+    }
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <div class="brand-icon">AG</div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-badge">AG</div>
             <span>Alliance Group</span>
-          </div>
-          <p style="max-width: 300px; font-size: 0.9rem;">Queensland's leading specialist in commercial building, industrial roofing, and licensed hazardous material remediation.</p>
+          </a>
+          <p style="max-width: 320px; font-size: 0.9rem; color: var(--text-muted);">Queensland's premier licensed specialist in commercial building, industrial metal roofing, and Class A & B hazardous material remediation.</p>
         </div>
-        <div class="footer-col">
-          <h4>Divisions</h4>
+        <div>
+          <h4 class="footer-title">Divisions</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Building Construction</a></li>
-            <li><a href="services.html">Metal Roofing Solutions</a></li>
-            <li><a href="services.html">Class A & B Asbestos</a></li>
-            <li><a href="services.html">Hazmat Decontamination</a></li>
+            <li><a href="services.html">Commercial Construction</a></li>
+            <li><a href="services.html">Colorbond® Metal Roofing</a></li>
+            <li><a href="services.html">Class A Friable Asbestos</a></li>
+            <li><a href="services.html">Class B Bonded Asbestos</a></li>
+            <li><a href="services.html">Hazmat & Soil Remediation</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Coverage Areas</h4>
+        <div>
+          <h4 class="footer-title">Coverage Regions</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Greater Brisbane</a></li>
+            <li><a href="contact.html">Greater Brisbane & Moreton</a></li>
             <li><a href="contact.html">Gold Coast & Hinterland</a></li>
-            <li><a href="contact.html">Sunshine Coast</a></li>
+            <li><a href="contact.html">Sunshine Coast & Noosa</a></li>
+            <li><a href="contact.html">Toowoomba & Darling Downs</a></li>
             <li><a href="contact.html">Regional Queensland</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Compliance & Licensing</h4>
+        <div>
+          <h4 class="footer-title">Licensing & Compliance</h4>
           <ul class="footer-links">
             <li><a href="about.html">QBCC License #1539201</a></li>
             <li><a href="about.html">Class A Asbestos #230491</a></li>
             <li><a href="about.html">WorkSafe QLD Approved</a></li>
-            <li><a href="about.html">ISO 45001 Certified</a></li>
+            <li><a href="about.html">ISO 45001 Safety Standard</a></li>
+            <li><a href="about.html">EPA Regulated Transport</a></li>
           </ul>
         </div>
       </div>
