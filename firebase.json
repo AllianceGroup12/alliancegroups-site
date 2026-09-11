@@ -6,9 +6,11 @@
       "**/.*",
       "**/.*/**",
       ".git/**",
+      ".agents/**",
       ".tours/**",
       ".vscode/**",
       ".locust_env/**",
+      "firebase-backend/**",
       "**/node_modules/**"
     ],
     "cleanUrls": true,

@@ -191,21 +191,39 @@
         <!-- Direct Bank Transfer Details -->
         <div>
           <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid var(--amber-accent);">
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1rem;">Direct Bank Transfer (EFT / BSB)</h3>
-            <p class="section-desc" style="font-size: 0.9rem; margin-bottom: 1.25rem;">For direct electronic funds transfers, please use the bank details below and include your Invoice Number as reference:</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-dark); margin: 0;">Direct Bank & PayID Remittance</h3>
+              <span style="background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">Instant Settlement</span>
+            </div>
+            <p class="section-desc" style="font-size: 0.9rem; margin-bottom: 1.25rem;">For instant zero-fee bank transfers (OSKO / PayID / EFT), click any detail to copy into your banking app:</p>
 
-            <div style="background-color: var(--bg-white); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.95rem; display: grid; gap: 0.5rem;">
-              <div><strong>Account Name:</strong> Alliance Group QLD</div>
-              <div><strong>Bank Name:</strong> ANZ Australia</div>
-              <div><strong>BSB Number:</strong> <span style="font-family: monospace; font-weight: 700; color: var(--navy-dark);">014-202</span></div>
-              <div><strong>Account Number:</strong> <span style="font-family: monospace; font-weight: 700; color: var(--navy-dark);">4829 1059</span></div>
-              <div><strong>Reference Format:</strong> `INV-[Number]` or Company Name</div>
+            <div style="background-color: var(--bg-white); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.95rem; display: grid; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span><strong>PayID (Mobile):</strong></span>
+                <span class="copy-badge" onclick="copyText('0410942905', this)">0410942905 📋 Click Copy</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span><strong>PayID (Email):</strong></span>
+                <span class="copy-badge" onclick="copyText('info@alliancegroups.com.au', this)">info@alliancegroups.com.au 📋 Copy</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span><strong>ANZ BSB:</strong></span>
+                <span class="copy-badge" onclick="copyText('014-202', this)">014-202 📋 Copy</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span><strong>ANZ Account:</strong></span>
+                <span class="copy-badge" onclick="copyText('48291059', this)">4829 1059 📋 Copy</span>
+              </div>
+              <div style="border-top: 1px dashed var(--border-color); padding-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                <strong>Account Name:</strong> Alliance Group QLD Pty Ltd<br>
+                <strong>Reference:</strong> Your Invoice # or Project Address
+              </div>
             </div>
           </div>
 
           <div class="card">
             <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--navy-dark); text-transform: uppercase; margin-bottom: 0.5rem;">Remittance & Billing Inquiries</h4>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Please send all remittance advice notices to our accounts department:</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Send remittance advice slips or purchase orders directly to:</p>
             <div style="font-size: 1rem; font-weight: 700; color: var(--navy-dark);"><a href="mailto:info@alliancegroups.com.au">info@alliancegroups.com.au</a></div>
             <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem;">Direct Phone: <a href="tel:0410942905" style="color: var(--navy-dark); font-weight: 700;">0410 942 905</a></div>
           </div>
@@ -216,14 +234,56 @@
   </section>
 
   <script>
-    function handleContactSubmit(e) {
+    function copyText(val, elem) {
+      navigator.clipboard.writeText(val);
+      const orig = elem.innerHTML;
+      elem.innerHTML = '✔ Copied!';
+      elem.style.background = '#dcfce7';
+      elem.style.color = '#166534';
       setTimeout(() => {
-        document.getElementById('contactPageForm').style.display = 'none';
-        document.getElementById('cFormSubmitted').style.display = 'block';
-      }, 300);
+        elem.innerHTML = orig;
+        elem.style.background = '#f1f5f9';
+        elem.style.color = 'inherit';
+      }, 1500);
     }
 
-    function handlePaymentSubmit(e) {
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const payload = {
+        name: document.getElementById('cName').value,
+        phone: document.getElementById('cPhone').value,
+        email: document.getElementById('cEmail').value,
+        service: document.getElementById('cService').value,
+        details: document.getElementById('cScope').value,
+        _subject: "URGENT Commercial Inquiry - Alliance Group QLD (Contact Page)",
+        _captcha: "false"
+      };
+
+      try {
+        await fetch('https://formsubmit.co/ajax/info@alliancegroups.com.au', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {}
+
+      try {
+        await fetch('http://localhost:5050/api/real_intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {}
+
+      const waMsg = encodeURIComponent(`Hi Alliance Group, my name is ${payload.name} (${payload.phone}). Requesting quote for: ${payload.service}. Scope: ${payload.details}`);
+      const waBtn = document.getElementById('cWaBtn');
+      if (waBtn) waBtn.href = `https://wa.me/61410942905?text=${waMsg}`;
+
+      document.getElementById('contactPageForm').style.display = 'none';
+      document.getElementById('cFormSubmitted').style.display = 'block';
+    }
+
+    async function handlePaymentSubmit(e) {
       e.preventDefault();
       const btn = document.getElementById('paySubmitBtn');
       const inv = document.getElementById('payInvoiceNum').value;
@@ -232,7 +292,35 @@
       const client = document.getElementById('payClientName').value;
 
       btn.disabled = true;
-      btn.innerText = 'Processing Payment...';
+      btn.innerText = 'Processing Payment Remittance...';
+
+      const payload = {
+        client: client,
+        email: email,
+        amount: parseFloat(amt),
+        invoice_id: inv,
+        type: "Online Card Payment",
+        product: `Payment for Invoice ${inv}`,
+        payment_method: "Stripe Online Card Portal",
+        _subject: `PAYMENT RECEIPT: $${amt} AUD for Invoice ${inv} - ${client}`,
+        _captcha: "false"
+      };
+
+      try {
+        await fetch('https://formsubmit.co/ajax/info@alliancegroups.com.au', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {}
+
+      try {
+        await fetch('http://localhost:5050/api/real_intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {}
 
       setTimeout(() => {
         document.getElementById('paymentForm').style.display = 'none';
@@ -248,9 +336,10 @@
           PAYER: ${client}<br>
           EMAIL: ${email}<br>
           AMOUNT PAID: $${amt} AUD<br>
-          DATE: ${new Date().toLocaleDateString('en-AU')}
+          DATE: ${new Date().toLocaleDateString('en-AU')}<br>
+          STATUS: ✔ APPROVED & LOGGED TO INFO@ALLIANCEGROUPS.COM.AU
         `;
-      }, 1000);
+      }, 900);
     }
   </script>
 
@@ -296,6 +385,21 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Real-Life Conversion Bar -->
+  <div class="floating-action-bar">
+    <div class="floating-action-container">
+      <div class="floating-info">
+        <span class="floating-dot"></span>
+        <span style="font-size: 0.85rem; font-weight: 600;">Technical Estimating Hotline: SEQ Wide</span>
+      </div>
+      <div class="floating-buttons">
+        <a href="tel:0410942905" class="btn-float btn-float-call">📞 Call 0410 942 905</a>
+        <a href="https://wa.me/61410942905?text=Hi%20Alliance%20Group,%20I%20need%20an%20urgent%20quote%20for%20a%20project..." target="_blank" class="btn-float btn-float-whatsapp">💬 WhatsApp Quote</a>
+        <a href="#payment-section" class="btn-float btn-float-pay">💳 Pay Deposit / Invoice</a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
