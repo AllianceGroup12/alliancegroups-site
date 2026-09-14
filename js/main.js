@@ -171,13 +171,8 @@
   }
 
   /* ══════════════════════════════════════════════════════════
-     CONTACT FORM — live Formspree submission
-     Emails info@alliancegroups.com.au + la.asbestos@gmail.com
-     on every submission, instantly, no backend required.
+     CONTACT FORM — live dispatch to info@alliancegroups.com.au
      ══════════════════════════════════════════════════════════ */
-  const FORMSPREE_MAIN = 'xlderjvq'; // Alliance Group main contact form
-  // To update: go to formspree.io → your form → copy ID
-
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
 
@@ -210,28 +205,35 @@
       }
 
       submitBtn.disabled = true;
-      submitBtn.querySelector('span').textContent = 'Sending…';
+      if (submitBtn.querySelector('span')) {
+        submitBtn.querySelector('span').textContent = 'Submitting details…';
+      }
 
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('phone', phone || 'Not provided');
-      formData.append('service', service);
-      formData.append('message', message);
-      formData.append('_subject', `🔔 New quote request — ${service} (${name})`);
-      formData.append('_replyto', email);
+      const payload = {
+        name: name,
+        email: email,
+        phone: phone || 'Not provided',
+        service: service,
+        message: message,
+        _subject: `Website Intake: ${service} - ${name}`,
+      };
 
       try {
-        const res = await fetch(`https://formspree.io/f/${FORMSPREE_MAIN}`, {
+        const res = await fetch('https://formsubmit.co/ajax/info@alliancegroups.com.au', {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData,
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' 
+          },
+          body: JSON.stringify(payload),
         });
 
         if (res.ok) {
           form.reset();
           submitBtn.disabled = false;
-          submitBtn.querySelector('span').textContent = 'Submit Proposal Request';
+          if (submitBtn.querySelector('span')) {
+            submitBtn.querySelector('span').textContent = '✓ Received';
+          }
           if (successMsg) {
             successMsg.classList.add('show');
             setTimeout(() => successMsg.classList.remove('show'), 8000);

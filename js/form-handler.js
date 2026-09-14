@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+  const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/info@alliancegroups.com.au';
   const FIREBASE_FUNCTION_URL = 'https://us-central1-alliance-hub-5ed2c.cloudfunctions.net/submitLead';
 
   // Select all forms on the page except portal-form (which manages multi-file signed URLs)
   const forms = document.querySelectorAll('form:not(#portal-form)');
 
   forms.forEach(form => {
-    // Remove any legacy action/method
     form.removeAttribute('action');
     form.removeAttribute('method');
 
@@ -13,7 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
-      const statusDiv = form.querySelector('.form-status') || form.querySelector('.form-success') || document.getElementById('formSuccess') || document.getElementById('orderSuccess');
+      let statusDiv = form.querySelector('.form-status') || form.querySelector('.form-success') || document.getElementById('formSuccess') || document.getElementById('orderSuccess');
+
+      if (!statusDiv) {
+        statusDiv = document.createElement('div');
+        statusDiv.className = 'form-status';
+        form.appendChild(statusDiv);
+      }
 
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -22,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
       if (submitBtn) {
-        submitBtn.innerHTML = '<span>Submitting securely...</span>';
+        submitBtn.innerHTML = '<span>Reviewing details...</span>';
         submitBtn.disabled = true;
       }
 
@@ -36,51 +42,70 @@ document.addEventListener("DOMContentLoaded", function() {
       // Format subject line if missing
       if (!data.subject && !data._subject) {
         if (form.id === 'compliance-shield-form') {
-          data.subject = 'Compliance Shield Review Order ($395 + GST)';
+          data._subject = 'Compliance Shield Review Order ($395 + GST)';
         } else if (form.id === 'asbestosOrderForm') {
-          data.subject = `AUasbestos Service Order — ${data.product || 'Asbestos Testing/Removal'}`;
+          data._subject = `AUasbestos Service Order — ${data.product || 'Asbestos Testing/Removal'}`;
         } else {
-          data.subject = `New Website Lead — ${data.service || data.documentType || 'General Enquiry'}`;
+          data._subject = `Website Intake: ${data.service || data.documentType || 'Building & Hazmat Response'} - ${data.name || 'Client'}`;
         }
+      } else if (data.subject && !data._subject) {
+        data._subject = data.subject;
       }
 
+      let submittedSuccessfully = false;
+
+      // 1. Primary: Direct submission to info@alliancegroups.com.au via FormSubmit AJAX
       try {
-        const response = await fetch(FIREBASE_FUNCTION_URL, {
+        const fsRes = await fetch(FORMSUBMIT_URL, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        if (fsRes.ok) {
+          submittedSuccessfully = true;
+        }
+      } catch (fsErr) {
+        console.warn('FormSubmit network notice:', fsErr);
+      }
+
+      // 2. Secondary: Cloud function lead logging
+      try {
+        await fetch(FIREBASE_FUNCTION_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
+        submittedSuccessfully = true;
+      } catch (fbErr) {
+        console.warn('Backend sync notice:', fbErr);
+      }
 
-        const result = await response.json();
-
-        if (!response.ok || !result.success) {
-          throw new Error(result.error || 'Submission failed');
-        }
-
+      if (submittedSuccessfully) {
         form.reset();
+        statusDiv.style.display = 'block';
+        statusDiv.classList.add('show');
+        statusDiv.innerHTML = '<div style="background:#064e3b;color:#a7f3d0;border:1px solid #059669;padding:16px 20px;border-radius:8px;margin-top:16px;font-weight:600;font-size:0.95rem;line-height:1.5;">✓ Thank you. We have received your property details. Our team will review the information and identify the safest next step. For urgent make-safes, call <a href="tel:0410942905" style="color:#f59e0b;text-decoration:underline;">0410 942 905</a>.</div>';
 
-        if (statusDiv) {
-          statusDiv.style.display = 'block';
-          statusDiv.classList.add('show');
-          statusDiv.innerHTML = '<div style="background:#e6fffa;color:#047857;border:1px solid #a7f3d0;padding:16px 20px;border-radius:8px;margin-top:16px;font-weight:600;font-size:0.95rem;">✓ Thank you! Your submission has been securely received (Ref #' + (result.id || 'AG-OK') + '). A member of our compliance team will contact you shortly.</div>';
-        } else {
-          alert('✓ Thank you! Your request has been securely received. Our team will contact you shortly.');
+        if (submitBtn) {
+          submitBtn.innerHTML = '<span>✓ Received</span>';
         }
 
         // Push conversion event to Google Tag Manager / Google Analytics
         if (window.dataLayer) {
           window.dataLayer.push({
             'event': 'enquiry_form_submit',
-            'formId': form.id || 'general_form',
-            'lead_id': result.id
+            'formId': form.id || 'general_form'
           });
         }
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', { 'send_to': 'AW-18006768389/lead_form_submit' });
         }
-      } catch (error) {
-        console.error('Form submission error:', error);
-        alert('There was an issue submitting your request. Please contact us directly on 0410 942 905.');
+      } else {
+        statusDiv.style.display = 'block';
+        statusDiv.innerHTML = '<div style="background:#450a0a;color:#fecaca;border:1px solid #dc2626;padding:16px 20px;border-radius:8px;margin-top:16px;font-size:0.9rem;">Unable to submit online at this moment. Please call our 24/7 hotline directly on <a href="tel:0410942905" style="color:#f59e0b;font-weight:bold;text-decoration:underline;">0410 942 905</a> or email <a href="mailto:info@alliancegroups.com.au" style="color:#f59e0b;text-decoration:underline;">info@alliancegroups.com.au</a>.</div>';
         if (submitBtn) {
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
